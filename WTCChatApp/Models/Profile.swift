@@ -15,6 +15,7 @@ struct Profile: Codable, Identifiable {
     var avatarUrl: String?
     var tags: [String]
     var status: String
+    var role: String
     var createdAt: Date
 
     enum CodingKeys: String, CodingKey {
@@ -25,12 +26,13 @@ struct Profile: Codable, Identifiable {
         case avatarUrl = "avatar_url"
         case tags
         case status
+        case role
         case createdAt = "created_at"
     }
 
     init(id: UUID = UUID(), fullName: String, email: String, phone: String? = nil,
          avatarUrl: String? = nil, tags: [String] = [], status: String = "active",
-         createdAt: Date = Date()) {
+         role: String = "CLIENT", createdAt: Date = Date()) {
         self.id = id
         self.fullName = fullName
         self.email = email
@@ -38,6 +40,9 @@ struct Profile: Codable, Identifiable {
         self.avatarUrl = avatarUrl
         self.tags = tags
         self.status = status
+        self.role = role
         self.createdAt = createdAt
     }
+
+    var isOperator: Bool { role == "OPERATOR" }
 }
