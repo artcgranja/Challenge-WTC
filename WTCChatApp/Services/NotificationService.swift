@@ -91,7 +91,11 @@ class NotificationService: NSObject, ObservableObject {
 
     func updateBadgeCount(_ count: Int) {
         DispatchQueue.main.async {
-            UNUserNotificationCenter.current().setBadgeCount(count)
+            if #available(iOS 16.0, *) {
+                UNUserNotificationCenter.current().setBadgeCount(count)
+            } else {
+                UIApplication.shared.applicationIconBadgeNumber = count
+            }
         }
     }
 

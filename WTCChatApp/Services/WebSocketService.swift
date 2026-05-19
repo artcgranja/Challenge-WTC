@@ -146,22 +146,26 @@ class WebSocketService: ObservableObject {
 
     private func parseStompFrame(_ text: String) -> (command: String, headers: [String: String], body: String)? {
         let cleanText = text.replacingOccurrences(of: "\0", with: "")
-        let parts = cleanText.split(separator: "\n\n", maxSplits: 1)
 
-        guard !parts.isEmpty else { return nil }
+        let headerSection: String
+        let body: String
+        if let range = cleanText.range(of: "\n\n") {
+            headerSection = String(cleanText[cleanText.startIndex..<range.lowerBound])
+            body = String(cleanText[range.upperBound...])
+        } else {
+            headerSection = cleanText
+            body = ""
+        }
 
-        let headerSection = String(parts[0])
-        let body = parts.count > 1 ? String(parts[1]) : ""
-
-        let lines = headerSection.split(separator: "\n").map(String.init)
-        guard !lines.isEmpty else { return nil }
+        let lines = headerSection.components(separatedBy: "\n")
+        guard !lines.isEmpty, !lines[0].isEmpty else { return nil }
 
         let command = lines[0]
         var headers: [String: String] = [:]
         for line in lines.dropFirst() {
-            let kv = line.split(separator: ":", maxSplits: 1).map(String.init)
-            if kv.count == 2 {
-                headers[kv[0]] = kv[1]
+            let parts = line.components(separatedBy: ":")
+            if parts.count >= 2 {
+                headers[parts[0]] = parts.dropFirst().joined(separator: ":")
             }
         }
 
