@@ -1,0 +1,26 @@
+name: WTCChatApp
+
+options:
+  bundleIdPrefix: com.wtc
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  WTCChatApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: WTCChatApp
+        excludes:
+          - Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.wtc.chatapp
+        INFOPLIST_FILE: WTCChatApp/Info.plist
+        GENERATE_INFOPLIST_FILE: false
