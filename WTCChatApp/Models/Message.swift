@@ -10,32 +10,25 @@ import Foundation
 struct Message: Codable, Identifiable {
     let id: UUID
     var type: MessageType
+    var senderId: String?
     var recipientId: UUID?
     var segmentTags: [String]?
     var content: MessageContent
+    var status: String?
     var readAt: Date?
     var starred: Bool
     var createdAt: Date
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case type
-        case recipientId = "recipient_id"
-        case segmentTags = "segment_tags"
-        case content
-        case readAt = "read_at"
-        case starred
-        case createdAt = "created_at"
-    }
-
-    init(id: UUID = UUID(), type: MessageType, recipientId: UUID? = nil,
-         segmentTags: [String]? = nil, content: MessageContent,
+    init(id: UUID = UUID(), type: MessageType, senderId: String? = nil, recipientId: UUID? = nil,
+         segmentTags: [String]? = nil, content: MessageContent, status: String? = nil,
          readAt: Date? = nil, starred: Bool = false, createdAt: Date = Date()) {
         self.id = id
         self.type = type
+        self.senderId = senderId
         self.recipientId = recipientId
         self.segmentTags = segmentTags
         self.content = content
+        self.status = status
         self.readAt = readAt
         self.starred = starred
         self.createdAt = createdAt
@@ -47,8 +40,8 @@ struct Message: Codable, Identifiable {
 }
 
 enum MessageType: String, Codable {
-    case chat
-    case campaign
+    case chat = "CHAT"
+    case campaign = "CAMPAIGN"
 }
 
 struct MessageContent: Codable {

@@ -33,16 +33,25 @@ public class CampaignService {
     }
 
     public List<Campaign> list() {
-        return campaignRepository.findAllByOrderByCreatedAtDesc();
+        List<Campaign> campaigns = campaignRepository.findAllByOrderByCreatedAtDesc();
+        for (Campaign c : campaigns) {
+            if (c.getSentBy() != null && c.getSentBy().length() > 30) {
+                userRepository.findById(c.getSentBy())
+                        .ifPresent(u -> c.setSentBy(u.getFullName()));
+            }
+        }
+        return campaigns;
     }
 
     public Campaign create(CampaignRequest request, String operatorId) {
+        String operatorName = userRepository.findById(operatorId)
+                .map(User::getFullName).orElse(operatorId);
         Campaign campaign = Campaign.builder()
                 .name(request.getName())
                 .segmentId(request.getSegmentId())
                 .content(request.getContent())
                 .deeplink(request.getDeeplink())
-                .sentBy(operatorId)
+                .sentBy(operatorName)
                 .build();
         return campaignRepository.save(campaign);
     }
@@ -72,7 +81,9 @@ public class CampaignService {
 
         campaign.setStatus(CampaignStatus.SENT);
         campaign.setSentAt(Instant.now());
-        campaign.setSentBy(operatorId);
+        String operatorName = userRepository.findById(operatorId)
+                .map(User::getFullName).orElse(operatorId);
+        campaign.setSentBy(operatorName);
         campaign.setMessageCount((int) recipientCount);
         return campaignRepository.save(campaign);
     }
