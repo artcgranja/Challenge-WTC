@@ -110,4 +110,8 @@ public class MessageService {
         message.setStarred(!message.isStarred());
         return messageRepository.save(message);
     }
+
+    public List<Message> getSentMessages(String senderId) {
+        return messageRepository.findBySenderIdOrderByCreatedAtDesc(senderId);
+    }
 }

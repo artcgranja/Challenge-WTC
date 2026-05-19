@@ -24,7 +24,7 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Customer>> list(
+    public ResponseEntity<List<Map<String, Object>>> list(
             @RequestParam(required = false) String tag,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) Integer minScore) {
