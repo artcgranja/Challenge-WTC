@@ -1,524 +1,165 @@
-# 📱 WTC Chat App
+# 📱 WTC Chat App — Challenge WTC 2025 (Sprint 2)
 
-<div align="center">
+> Plataforma de comunicação CRM do **WTC Business Club São Paulo**: app iOS nativo + backend Java robusto, integrados via APIs REST reais (sem mocks).
 
 ![iOS](https://img.shields.io/badge/iOS-15.0+-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![SwiftUI](https://img.shields.io/badge/SwiftUI-3.0-purple)
-![Supabase](https://img.shields.io/badge/Supabase-2.0-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
-
-**Sistema de Mensagens em Tempo Real para CRM Corporativo**
-
-[Sobre](#-sobre) • [Features](#-features) • [Stack](#-stack) • [Setup](#-setup-rápido) • [Documentação](#-documentação) • [Demo](#-demo)
-
-</div>
+![SwiftUI](https://img.shields.io/badge/SwiftUI-MVVM-purple)
+![Java](https://img.shields.io/badge/Java-17-red)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL-darkgreen)
 
 ---
 
 ## 🎯 Sobre
 
-O **WTC Chat App** é um aplicativo iOS nativo desenvolvido para o **Challenge WTC 2025** que revoluciona a comunicação entre empresas e clientes. Permite que operadores de atendimento e times de marketing disparem mensagens segmentadas (promoções, campanhas, banners, eventos) em tempo real, diretamente para grupos ou clientes específicos.
+Solução completa que permite a operadores e times de marketing dispararem mensagens
+segmentadas (promoções, campanhas, banners, eventos) em tempo real para clientes ou
+grupos, com notificações push/in-app, histórico de chat e botões de ação interativos —
+tudo integrado a um CRM corporativo.
 
-### Problema Resolvido
-- ❌ Comunicação fragmentada entre empresa e clientes
-- ❌ Falta de personalização em mensagens de marketing
-- ❌ Ausência de interatividade em notificações
-- ❌ Dificuldade em segmentar público-alvo
+**Sprint 1** entregou o app iOS (protótipo). **Sprint 2** substituiu os mocks por um
+backend real em Spring Boot + MongoDB, com o app consumindo APIs REST funcionais.
 
-### Solução
-- ✅ Mensagens em tempo real via WebSocket
-- ✅ Segmentação inteligente por tags
-- ✅ Botões de ação interativos
-- ✅ Interface moderna e intuitiva
+## 🏗️ Arquitetura
 
----
+```
+┌─────────────────────┐      REST/JSON (JWT)      ┌──────────────────────────┐
+│   iOS App (SwiftUI) │ ───────────────────────▶  │  Spring Boot 3.3 (Java17)│
+│   MVVM + Combine    │ ◀─── STOMP / WebSocket ─── │  Security · AOP · WS     │
+└─────────────────────┘                            └────────────┬─────────────┘
+                                                                 │
+                                                          ┌──────▼──────┐
+                                                          │  MongoDB    │
+                                                          │  (NoSQL)    │
+                                                          └─────────────┘
+```
 
-## ✨ Features
+- **App iOS** — Swift 5.9, SwiftUI, MVVM, **zero dependências externas** (URLSession + STOMP manual)
+- **Backend** — Java 17, Spring Boot 3.3, Spring Security (JWT), Spring Data MongoDB, Spring WebSocket (STOMP), Spring AOP (auditoria)
+- **Banco** — MongoDB (7 collections)
+- **Diferencial** — comunicação **em tempo real** via WebSocket/STOMP + governança via auditoria automática (AOP)
 
-### 🔐 Autenticação
-- Login seguro com email/senha
-- Persistência de sessão
-- Recuperação de senha
-- Suporte a Supabase Auth
+## 📂 Estrutura do Repositório
 
-### 💬 Mensagens
-- Lista de mensagens com filtros (Todas, Chat, Campanhas, Não Lidas, Favoritas)
-- Busca em tempo real
-- Marcar como lida/favorita
-- Swipe para deletar
-- Pull-to-refresh
-
-### 🔔 Notificações
-- **In-app:** Popup elegante quando app está aberto
-- **Push:** Notificações APNs em background
-- Badge automático com contador
-- Centro de notificações integrado
-
-### 🎨 Interatividade
-Botões dinâmicos que executam ações:
-- `deeplink://` → Navegação interna no app
-- `copy:TEXTO` → Copia para clipboard
-- `https://` → Abre link externo no Safari
-
-### 🎯 Segmentação
-- Mensagens para usuários específicos
-- Campanhas para grupos por tags (VIP, Beta, Ativo, etc.)
-- RLS (Row Level Security) no banco de dados
-
-### 🚀 Realtime
-- WebSocket com Supabase Realtime
-- Atualização instantânea de mensagens
-- Reconexão automática
-- Latência < 100ms
-
----
+```
+Challenge-WTC/
+├── backend/            # Spring Boot + MongoDB (Sprint 2) — ver backend/README.md
+│   └── src/main/java/com/wtc/chatapp/
+│       ├── config/     # Security, WebSocket, Jackson, DataLoader (seed)
+│       ├── security/   # JWT (filter, util, userdetails)
+│       ├── model/      # 7 documents + value objects + enums
+│       ├── repository/ # Spring Data MongoDB
+│       ├── service/    # regras de negócio
+│       ├── controller/ # 7 controllers REST
+│       ├── audit/      # AuditAspect (AOP)
+│       └── websocket/  # WebSocketService (STOMP)
+├── WTCChatApp/         # App iOS nativo (SwiftUI)
+│   ├── App/            # entry point + roteamento por role
+│   ├── Models/         # Message, Profile, Customer, Campaign, Segment...
+│   ├── ViewModels/     # Auth, Messages, Notifications, CRM, Campaign
+│   ├── Views/          # CLIENT (Login, Messages...) + Operator (CRM, Campanhas...)
+│   ├── Services/       # APIService (REST), WebSocketService (STOMP), Notification
+│   └── Utils/          # Theme (design system), Constants, DeeplinkHandler
+├── project.yml         # XcodeGen → gera WTCChatApp.xcodeproj
+└── Documentation/      # documentação técnica
+```
 
 ## 🛠️ Stack
 
-### Frontend
-```yaml
-Linguagem: Swift 5.9+
-UI Framework: SwiftUI
-Arquitetura: MVVM
-Mínimo iOS: 15.0
-Dependências:
-  - Supabase Swift 2.0+
-  - Kingfisher 7.0+ (cache de imagens)
-```
+| Camada | Tecnologias |
+|--------|-------------|
+| **iOS** | Swift 5.9 · SwiftUI · Combine · MVVM · iOS 15+ · sem deps externas |
+| **Backend** | Java 17 · Spring Boot 3.3 · Spring Security · Spring Data MongoDB · Spring WebSocket · Spring AOP · Lombok · JJWT |
+| **Banco** | MongoDB 6.0+ |
+| **Auth** | JWT (access 24h / refresh 7d) · BCrypt · roles OPERATOR/CLIENT |
+| **Realtime** | WebSocket STOMP (`/topic/messages/{userId}`, `/topic/notifications/{userId}`) |
 
-### Backend
-```yaml
-BaaS: Supabase
-Database: PostgreSQL
-Auth: Supabase Auth
-Realtime: Supabase Realtime (WebSocket)
-Storage: Supabase Storage
-```
+## 🚀 Setup
 
----
-
-## 📂 Estrutura do Projeto
-
-```
-WTCChatApp/
-├── 📱 App/
-│   └── WTCChatAppApp.swift         # Entry point
-├── 📦 Models/
-│   ├── Message.swift
-│   ├── Profile.swift
-│   └── Notification.swift
-├── 🧠 ViewModels/
-│   ├── AuthViewModel.swift
-│   ├── MessagesViewModel.swift
-│   └── NotificationsViewModel.swift
-├── 🎨 Views/
-│   ├── Auth/
-│   │   └── LoginView.swift
-│   ├── Messages/
-│   │   ├── MessagesListView.swift
-│   │   └── MessageDetailView.swift
-│   ├── Notifications/
-│   │   └── NotificationsView.swift
-│   └── Profile/
-│       └── ProfileView.swift
-├── ⚙️ Services/
-│   ├── SupabaseService.swift
-│   ├── RealtimeService.swift
-│   └── NotificationService.swift
-├── 🔧 Utils/
-│   ├── DeeplinkHandler.swift
-│   └── Constants.swift
-├── 🗄️ Database/
-│   ├── schema.sql                  # Schema do banco
-│   └── seed_data.sql               # Dados de teste
-└── 📚 Documentation/
-    └── DOCUMENTATION.md            # Documentação completa
-```
-
----
-
-## 🚀 Setup Rápido
-
-### Pré-requisitos
-- macOS 13.0+ (Ventura)
-- Xcode 15.0+
-- Conta Supabase (gratuita)
-
-### 1. Clone o Repositório
-```bash
-git clone https://github.com/seu-usuario/wtc-chat-app.git
-cd wtc-chat-app/WTCChatApp
-```
-
-### 2. Configure o Supabase
-
-#### 2.1. Crie um Projeto
-1. Acesse [supabase.com](https://supabase.com)
-2. Clique em "New Project"
-3. Anote a **URL** e **Anon Key**
-
-#### 2.2. Configure o Banco de Dados
-```bash
-# No Supabase Dashboard:
-# SQL Editor → New Query → Cole o conteúdo de Database/schema.sql → Run
-```
-
-#### 2.3. Crie Usuários de Teste
-```bash
-# Authentication → Users → Add User
-# Crie 3 usuários com emails:
-# - joao@test.com
-# - maria@test.com
-# - pedro@test.com
-```
-
-#### 2.4. Popule Dados de Teste
-```bash
-# Atualize os UUIDs em Database/seed_data.sql
-# Execute no SQL Editor
-```
-
-### 3. Configure o App
-
-Edite `WTCChatApp/Utils/Constants.swift`:
-
-```swift
-struct Constants {
-    static let supabaseURL = "https://SEU-PROJETO.supabase.co"
-    static let supabaseAnonKey = "SUA-ANON-KEY-AQUI"
-}
-```
-
-### 4. Instale Dependências
-
-No Xcode:
-1. `File` → `Add Package Dependencies`
-2. Adicione:
-   - `https://github.com/supabase/supabase-swift`
-   - `https://github.com/onevcat/Kingfisher`
-
-### 5. Build e Run
+### 1. Backend (Spring Boot + MongoDB)
 
 ```bash
-# Abra o projeto no Xcode
-open WTCChatApp.xcodeproj
+# Pré-requisitos: Java 17, Maven, MongoDB rodando em localhost:27017
 
-# Selecione um simulador (iPhone 15 Pro recomendado)
-# Pressione Cmd+R para rodar
+# macOS (Homebrew)
+brew install openjdk@17 mongodb-community
+brew services start mongodb-community
+
+cd backend
+JAVA_HOME=$(brew --prefix openjdk@17) ./mvnw spring-boot:run
+# Servidor em http://localhost:8080
+# Seed automático na 1ª execução (5 usuários, 3 segmentos, 6 msgs, 2 campanhas)
 ```
 
----
+Detalhes completos da API em **[backend/README.md](backend/README.md)**.
 
-## 🧪 Testando o App
+### 2. App iOS
 
-### 1. Login
-```
-Email: joao@test.com
-Senha: (a que você definiu no Supabase)
-```
+```bash
+# Pré-requisitos: macOS, Xcode 15+, XcodeGen (brew install xcodegen)
 
-### 2. Ver Mensagens
-- Você verá mensagens de teste já populadas
-- Filtre por tipo (Chat, Campanhas, etc.)
-- Busque por palavra-chave
-
-### 3. Testar Realtime
-
-#### Via SQL Editor (Supabase):
-```sql
--- Inserir nova mensagem para João (substitua o UUID)
-INSERT INTO messages (type, recipient_id, content, created_at)
-VALUES (
-    'chat',
-    '11111111-1111-1111-1111-111111111111', -- UUID do João
-    '{
-        "title": "Teste Realtime",
-        "body": "Esta mensagem aparecerá instantaneamente no app!",
-        "buttons": [
-            {"label": "Testar", "action": "deeplink://profile"}
-        ]
-    }'::jsonb,
-    NOW()
-);
+cd Challenge-WTC
+xcodegen generate          # gera WTCChatApp.xcodeproj
+open WTCChatApp.xcodeproj  # Cmd+R em um simulador (iPhone 15+)
 ```
 
-#### Resultado Esperado:
-- ✅ Popup in-app aparece imediatamente
-- ✅ Mensagem aparece na lista
-- ✅ Badge de não lidas incrementa
-- ✅ Notificação push (se app em background)
+O app aponta para `http://localhost:8080` por padrão (`WTCChatApp/Utils/Constants.swift`).
 
-### 4. Testar Botões Interativos
+## 🧪 Credenciais de Teste
 
-Abra uma mensagem e clique nos botões:
-- **"Ver Ofertas"** → Navega internamente
-- **"Copiar Cupom"** → Copia código e mostra toast
-- **"Visitar Site"** → Abre Safari
+| Email | Senha | Tipo | Tags |
+|-------|-------|------|------|
+| admin@wtc.com | admin123 | OPERATOR | — |
+| operador@wtc.com | oper123 | OPERATOR | — |
+| joao@test.com | test123 | CLIENT | vip, ativo |
+| maria@test.com | test123 | CLIENT | ativo |
+| pedro@test.com | test123 | CLIENT | vip, beta, ativo |
 
----
+- **Login como CLIENT** → inbox de mensagens, campanhas, notificações, perfil
+- **Login como OPERATOR** → CRM (clientes, busca/filtros), campanhas express, envio 1:1/segmento, notas, timeline 360°
 
-## 📊 Database Schema
+## ✅ Funcionalidades
 
-### Tabela: `profiles`
-```sql
-id           UUID (PK)
-full_name    TEXT
-email        TEXT
-tags         TEXT[]     -- ['vip', 'ativo', 'beta']
-status       TEXT       -- 'active', 'inactive', 'pending'
-```
+**Autenticação** — login operador/cliente, JWT, refresh, roles.
 
-### Tabela: `messages`
-```sql
-id            UUID (PK)
-type          TEXT       -- 'chat' | 'campaign'
-recipient_id  UUID (FK)  -- Usuário específico
-segment_tags  TEXT[]     -- ['vip'] → Para todos VIPs
-content       JSONB      -- {title, body, imageUrl, buttons}
-read_at       TIMESTAMP
-starred       BOOLEAN
-```
+**Chat integrado ao CRM** — conversas 1:1 e por segmento, push + pop-up in-app, histórico, status de mensagem (SENT/DELIVERED/READ/FAILED).
 
-### Tabela: `notifications`
-```sql
-id          UUID (PK)
-user_id     UUID (FK)
-title       TEXT
-body        TEXT
-type        TEXT       -- 'message' | 'campaign' | 'system'
-read        BOOLEAN
-message_id  UUID (FK)
-```
+**CRM no App (visão operador)** — lista de clientes com busca e filtros (tags/score/status), anotações rápidas por cliente, perfil 360° (timeline de mensagens + notas).
 
----
+**Campanhas Express** — envio imediato de promoções/comunicados por segmento, deeplinks internos.
 
-## 🎨 Screenshots
+**Governança** — auditoria automática (AOP) de operações de escrita.
 
-### Login
-```
-┌──────────────────────┐
-│   💬 WTC Chat       │
-│                      │
-│  ┌────────────────┐ │
-│  │ Email          │ │
-│  └────────────────┘ │
-│  ┌────────────────┐ │
-│  │ Senha          │ │
-│  └────────────────┘ │
-│                      │
-│  ┌────────────────┐ │
-│  │    ENTRAR      │ │
-│  └────────────────┘ │
-└──────────────────────┘
-```
+**Interatividade** — botões dinâmicos: `deeplink://` (navegação interna), `https://` (link externo), `copy:` (clipboard).
 
-### Home - Lista de Mensagens
-```
-┌──────────────────────┐
-│  Mensagens       👤  │
-├──────────────────────┤
-│ [Todas][Chat][Camp.] │
-├──────────────────────┤
-│ 🔍 Buscar mensagens  │
-├──────────────────────┤
-│ 📢 Black Friday VIP  │
-│ Aproveite 50% OFF... │
-│ 2h atrás         ⭐● │
-├──────────────────────┤
-│ 💬 Seu pedido #1234  │
-│ Foi enviado e deve.. │
-│ 1 dia atrás          │
-└──────────────────────┘
-```
+**Tempo real** — WebSocket/STOMP: nova mensagem aparece instantaneamente no app.
 
-### Detalhes da Mensagem
-```
-┌──────────────────────┐
-│  ◀ Mensagem      ⭐  │
-├──────────────────────┤
-│ ┌────────────────┐   │
-│ │   [BANNER]     │   │
-│ └────────────────┘   │
-│                      │
-│ Black Friday VIP 🎉  │
-│ 📢 Campanha          │
-│                      │
-│ Aproveite 50% de     │
-│ desconto em TODOS    │
-│ os produtos...       │
-│                      │
-│ ┌────────────────┐   │
-│ │ Ver Ofertas  → │   │
-│ └────────────────┘   │
-│ ┌────────────────┐   │
-│ │ Copiar: BF50 📋│   │
-│ └────────────────┘   │
-└──────────────────────┘
-```
+## 📊 Modelo de Dados (MongoDB, 7 collections)
 
----
+| Collection | Conteúdo |
+|------------|----------|
+| `users` | operadores + clientes (auth, perfil, role, tags, status) |
+| `customers` | registro CRM (userId, tags, score 0-100, status, notes[], segmentIds[]) |
+| `segments` | name, description, tags[], createdBy |
+| `messages` | type (CHAT/CAMPAIGN), senderId, recipientId, segmentTags[], content{title,body,imageUrl,buttons[]}, status, readAt, starred |
+| `campaigns` | name, segmentId, content, deeplink, status (DRAFT/SENT), sentBy, messageCount |
+| `notifications` | userId, title, body, type, read, messageId |
+| `audit_logs` | userId, action, resource, resourceId, details, ipAddress, timestamp |
 
-## 🎯 Funcionalidades Implementadas
-
-### Checklist Completo
-
-#### ✅ Autenticação
-- [x] Login com email/senha
-- [x] Persistência de sessão
-- [x] Logout
-- [x] Recuperação de senha
-
-#### ✅ Mensagens
-- [x] Listar mensagens
-- [x] Filtrar por tipo
-- [x] Buscar por palavra-chave
-- [x] Marcar como lida
-- [x] Favoritar mensagem
-- [x] Swipe para deletar
-
-#### ✅ Realtime
-- [x] WebSocket subscription
-- [x] Atualização automática
-- [x] Badge de não lidas
-
-#### ✅ Notificações
-- [x] In-app popup
-- [x] Push notifications (APNs)
-- [x] Centro de notificações
-- [x] Badge de app
-
-#### ✅ Interatividade
-- [x] Botões dinâmicos
-- [x] Deeplinks
-- [x] Copiar para clipboard
-- [x] Links externos
-
-#### ✅ Segmentação
-- [x] Mensagens para usuário específico
-- [x] Campanhas por tags
-- [x] RLS no banco de dados
-
----
+**Inbox query:** `$or: [recipientId = userId, segmentTags ∈ userTags]` — segmentação server-side.
 
 ## 📚 Documentação
 
-### Documentação Completa
-Veja a documentação técnica completa em:
-- **[DOCUMENTATION.md](WTCChatApp/Documentation/DOCUMENTATION.md)** - Documentação completa com diagramas, fluxos e detalhes técnicos
+- **[backend/README.md](backend/README.md)** — setup, todos os endpoints, payloads, modelo de dados
+- **[Documentation/DOCUMENTATION.md](Documentation/DOCUMENTATION.md)** — arquitetura técnica detalhada
 
-### Arquivos Importantes
-- **[schema.sql](WTCChatApp/Database/schema.sql)** - Schema do banco de dados
-- **[seed_data.sql](WTCChatApp/Database/seed_data.sql)** - Dados de teste
+## 👨‍💻 Equipe — Challenge WTC 2025 · FIAP · 2TDS
 
----
-
-## 🎥 Demo
-
-### Vídeo de Demonstração
-(Grave um vídeo de 5 minutos mostrando:)
-1. Login
-2. Recebimento de mensagem em tempo real
-3. Abertura e leitura de mensagem
-4. Interação com botões
-5. Notificação in-app
+| Nome | RM |
+|------|-----|
+| Arthur Cavalcanti Granja | 560650 |
 
 ---
 
-## 🔧 Troubleshooting
-
-### Erro: "Supabase connection failed"
-**Solução:** Verifique se a URL e Anon Key em `Constants.swift` estão corretas
-
-### Erro: "No messages appearing"
-**Solução:**
-1. Verifique se executou o `seed_data.sql`
-2. Verifique se o UUID do usuário corresponde ao criado no Supabase Auth
-3. Verifique as policies RLS no Supabase
-
-### Erro: "Realtime not working"
-**Solução:**
-1. Verifique se o Realtime está habilitado no Supabase
-2. Verifique se a subscription foi estabelecida (log no console)
-
-### Erro: "Build failed - Package not found"
-**Solução:**
-1. `File` → `Packages` → `Reset Package Caches`
-2. `File` → `Packages` → `Update to Latest Package Versions`
-
----
-
-## 🚀 Deploy
-
-### TestFlight
-```bash
-# 1. Archive o projeto
-# Product → Archive
-
-# 2. Distribua para TestFlight
-# Organizer → Distribute App → App Store Connect
-
-# 3. Configure TestFlight
-# App Store Connect → TestFlight → Adicione testadores
-```
-
-### App Store
-Siga o guia oficial da Apple:
-https://developer.apple.com/app-store/submissions/
-
----
-
-## 🛣️ Roadmap
-
-### Sprint 2 (Futuro)
-- [ ] Comandos rápidos "/" (ex: /promo)
-- [ ] Cache offline
-- [ ] Dark mode
-- [ ] Animações avançadas
-
-### Sprint 3 (Futuro)
-- [ ] Envio de mensagens pelo cliente
-- [ ] Upload de imagens
-- [ ] Localização PT/EN
-- [ ] Estatísticas de engajamento
-
----
-
-## 📄 Licença
-
-Este projeto foi desenvolvido como parte do **Challenge WTC 2025**.
-
----
-
-## 👨‍💻 Autor
-
-**Desenvolvido por:** Claude Code
-**Data:** 30/10/2025
-**Challenge:** WTC 2025 - Sprint 1
-
----
-
-## 🙏 Agradecimentos
-
-- WTC pela oportunidade
-- Supabase pela plataforma incrível
-- Comunidade Swift/iOS
-
----
-
-## 📞 Suporte
-
-Para dúvidas ou issues:
-- 📧 Email: suporte@wtc.com
-- 📖 Docs: [docs.wtc.com](https://docs.wtc.com)
-- 🐛 Issues: [GitHub Issues](https://github.com/seu-usuario/wtc-chat-app/issues)
-
----
-
-<div align="center">
-
-**Feito com ❤️ usando Swift e SwiftUI**
-
-[⬆ Voltar ao topo](#-wtc-chat-app)
-
-</div>
+*Challenge WTC 2025 — Sprint 2. FIAP · Análise e Desenvolvimento de Sistemas.*

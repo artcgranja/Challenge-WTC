@@ -63,3 +63,16 @@ fastlane/test_output
 
 # Generated Xcode project (regenerate with: xcodegen generate)
 *.xcodeproj
+
+# Build artifacts
+backend/target/
+build/
+DerivedData/
+.claude/
+
+# Presentation build (keep source build.js, ignore deps & renders)
+Documentation/presentation/node_modules/
+Documentation/presentation/slide-*.jpg
+Documentation/presentation/WTC-Challenge-Sprint2.pdf
+Documentation/presentation/WTC-Challenge-Sprint2.pptx
+Documentation/.DS_Store
