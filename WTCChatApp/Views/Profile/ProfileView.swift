@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -22,41 +21,38 @@ struct ProfileView: View {
                         // Avatar
                         if let avatarUrl = authViewModel.currentProfile?.avatarUrl,
                            let url = URL(string: avatarUrl) {
-                            KFImage(url)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 100)
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [Color.blue, Color.purple]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            ),
-                                            lineWidth: 3
-                                        )
-                                )
-                                .shadow(radius: 10)
-                        } else {
-                            ZStack {
+                            AsyncImage(url: url, transaction: Transaction(animation: .easeInOut)) { phase in
+                                switch phase {
+                                case .empty:
+                                    initialsView
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .transition(.opacity)
+                                case .failure:
+                                    initialsView
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .overlay(
                                 Circle()
-                                    .fill(
+                                    .stroke(
                                         LinearGradient(
                                             gradient: Gradient(colors: [Color.blue, Color.purple]),
                                             startPoint: .topLeading,
                                             endPoint: .bottomTrailing
-                                        )
+                                        ),
+                                        lineWidth: 3
                                     )
-                                    .frame(width: 100, height: 100)
-
-                                Text(initials)
-                                    .font(.largeTitle)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
+                            )
                             .shadow(radius: 10)
+                        } else {
+                            initialsView
+                                .shadow(radius: 10)
                         }
 
                         // Name
@@ -238,6 +234,25 @@ struct ProfileView: View {
             return .orange
         default:
             return .gray
+        }
+    }
+
+    private var initialsView: some View {
+        ZStack {
+            Circle()
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color.blue, Color.purple]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(width: 100, height: 100)
+
+            Text(initials)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
         }
     }
 
