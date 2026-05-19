@@ -87,7 +87,7 @@ struct CreateCampaignSheet: View {
             }
             .navigationBarHidden(true)
         }
-        .presentationDetents([.large])
+        .modifier(LargeDetent())
         .sheet(isPresented: $showSegmentPicker) {
             SegmentPickerView(segments: campaignViewModel.segments, selectedSegment: $selectedSegment)
         }

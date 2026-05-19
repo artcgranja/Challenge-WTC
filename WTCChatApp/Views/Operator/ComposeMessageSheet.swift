@@ -112,7 +112,7 @@ struct ComposeMessageSheet: View {
             }
             .navigationBarHidden(true)
         }
-        .presentationDetents([.large])
+        .modifier(LargeDetent())
         .sheet(isPresented: $showSegmentPicker) {
             SegmentPickerView(segments: campaignViewModel.segments, selectedSegment: $selectedSegment)
         }
@@ -146,6 +146,18 @@ struct ComposeMessageSheet: View {
         if success {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             dismiss()
+        }
+    }
+}
+
+// MARK: - iOS 15 Compatibility
+
+struct LargeDetent: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content.presentationDetents([.large])
+        } else {
+            content
         }
     }
 }
@@ -193,7 +205,9 @@ struct LabeledTextEditor: View {
                 TextEditor(text: $text)
                     .font(.system(size: 14))
                     .frame(minHeight: 80)
-                    .scrollContentBackground(.hidden)
+                    .onAppear {
+                        UITextView.appearance().backgroundColor = .clear
+                    }
             }
         }
         .padding(12)
