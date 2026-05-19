@@ -26,6 +26,11 @@ public class SegmentController {
         return ResponseEntity.ok(segmentService.list());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Segment> get(@PathVariable String id) {
+        return ResponseEntity.ok(segmentService.getById(id));
+    }
+
     @PostMapping
     public ResponseEntity<Segment> create(@Valid @RequestBody SegmentRequest request) {
         String userId = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
