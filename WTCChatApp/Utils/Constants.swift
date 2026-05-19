@@ -8,10 +8,9 @@
 import Foundation
 
 struct Constants {
-    // Supabase Configuration
-    // IMPORTANT: Replace these with your actual Supabase project credentials
-    static let supabaseURL = "YOUR_SUPABASE_URL" // Ex: https://xxxxx.supabase.co
-    static let supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY"
+    // Backend API Configuration
+    static let apiBaseURL = "http://localhost:8080/api"
+    static let wsBaseURL = "ws://localhost:8080/ws"
 
     // App Configuration
     static let appName = "WTC Chat"
@@ -33,16 +32,12 @@ struct Constants {
         static let system = "system"
     }
 
-    // Database Tables
-    struct Tables {
-        static let profiles = "profiles"
-        static let messages = "messages"
-        static let notifications = "notifications"
-    }
-
     // User Defaults Keys
     struct UserDefaultsKeys {
         static let hasSeenOnboarding = "hasSeenOnboarding"
         static let lastSyncDate = "lastSyncDate"
+        static let accessToken = "access_token"
+        static let refreshToken = "refresh_token"
+        static let userId = "user_id"
     }
 }

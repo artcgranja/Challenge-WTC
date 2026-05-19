@@ -7,17 +7,15 @@
 
 import Foundation
 import SwiftUI
-import Supabase
 
 @MainActor
 class AuthViewModel: ObservableObject {
     @Published var isAuthenticated = false
-    @Published var currentUser: User?
     @Published var currentProfile: Profile?
     @Published var isLoading = false
     @Published var errorMessage: String?
 
-    private let supabaseService = SupabaseService.shared
+    private let apiService = APIService.shared
 
     init() {
         Task {
@@ -31,14 +29,22 @@ class AuthViewModel: ObservableObject {
         isLoading = true
         defer { isLoading = false }
 
+        guard apiService.isLoggedIn else {
+            isAuthenticated = false
+            return
+        }
+
         do {
-            if let session = await supabaseService.getCurrentSession() {
-                currentUser = session.user
-                isAuthenticated = true
-                await loadProfile()
-            } else {
-                isAuthenticated = false
+            let profile = try await apiService.fetchProfile()
+            currentProfile = profile
+            isAuthenticated = true
+
+            if let userId = apiService.currentUserId {
+                WebSocketService.shared.connect(userId: userId)
             }
+        } catch {
+            isAuthenticated = false
+            apiService.logout()
         }
     }
 
@@ -48,10 +54,20 @@ class AuthViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            let user = try await supabaseService.signIn(email: email, password: password)
-            currentUser = user
+            let response = try await apiService.login(email: email, password: password)
+            currentProfile = Profile(
+                id: UUID(uuidString: response.userId) ?? UUID(),
+                fullName: response.fullName,
+                email: response.email,
+                phone: response.phone,
+                avatarUrl: response.avatarUrl,
+                tags: response.tags ?? [],
+                status: response.status ?? "active",
+                createdAt: Date()
+            )
             isAuthenticated = true
-            await loadProfile()
+
+            WebSocketService.shared.connect(userId: response.userId)
         } catch {
             errorMessage = "Erro ao fazer login: \(error.localizedDescription)"
             print("Sign in error: \(error)")
@@ -62,18 +78,10 @@ class AuthViewModel: ObservableObject {
         isLoading = true
         defer { isLoading = false }
 
-        do {
-            try await supabaseService.signOut()
-            currentUser = nil
-            currentProfile = nil
-            isAuthenticated = false
-
-            // Cleanup realtime subscriptions
-            await RealtimeService.shared.cleanup()
-        } catch {
-            errorMessage = "Erro ao fazer logout: \(error.localizedDescription)"
-            print("Sign out error: \(error)")
-        }
+        apiService.logout()
+        currentProfile = nil
+        isAuthenticated = false
+        WebSocketService.shared.cleanup()
     }
 
     func resetPassword(email: String) async {
@@ -81,30 +89,16 @@ class AuthViewModel: ObservableObject {
         errorMessage = nil
         defer { isLoading = false }
 
-        do {
-            try await supabaseService.resetPassword(email: email)
-            errorMessage = "Email de recuperação enviado! Verifique sua caixa de entrada."
-        } catch {
-            errorMessage = "Erro ao enviar email: \(error.localizedDescription)"
-            print("Reset password error: \(error)")
-        }
+        errorMessage = "Funcionalidade de recuperação de senha disponível em breve."
     }
 
     // MARK: - Profile
 
-    private func loadProfile() async {
-        guard let userId = currentUser?.id else { return }
-
+    func refreshProfile() async {
         do {
-            currentProfile = try await supabaseService.fetchProfile(userId: userId)
+            currentProfile = try await apiService.fetchProfile()
         } catch {
             print("Error loading profile: \(error)")
-            // If profile doesn't exist, we might need to create one
-            // For now, just log the error
         }
-    }
-
-    func refreshProfile() async {
-        await loadProfile()
     }
 }

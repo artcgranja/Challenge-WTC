@@ -65,7 +65,7 @@ struct MessagesListView: View {
                             }
                         }
                         .refreshable {
-                            if let userId = authViewModel.currentUser?.id,
+                            if let userId = authViewModel.currentProfile?.id,
                                let userTags = authViewModel.currentProfile?.tags {
                                 await viewModel.refreshMessages(userId: userId, userTags: userTags)
                             }
@@ -113,7 +113,7 @@ struct MessagesListView: View {
             }
         }
         .task {
-            if let userId = authViewModel.currentUser?.id,
+            if let userId = authViewModel.currentProfile?.id,
                let userTags = authViewModel.currentProfile?.tags {
                 await viewModel.fetchMessages(userId: userId, userTags: userTags)
             }

@@ -16,8 +16,8 @@ class NotificationsViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var unreadCount = 0
 
-    private let supabaseService = SupabaseService.shared
-    private let realtimeService = RealtimeService.shared
+    private let apiService = APIService.shared
+    private let webSocketService = WebSocketService.shared
     private var cancellables = Set<AnyCancellable>()
 
     init() {
@@ -28,8 +28,7 @@ class NotificationsViewModel: ObservableObject {
     // MARK: - Setup
 
     private func setupRealtimeSubscription() {
-        // Listen for new notifications from realtime
-        realtimeService.$newNotification
+        webSocketService.$newNotification
             .compactMap { $0 }
             .sink { [weak self] newNotification in
                 self?.handleNewNotification(newNotification)
@@ -53,10 +52,7 @@ class NotificationsViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            notifications = try await supabaseService.fetchNotifications(userId: userId)
-
-            // Subscribe to realtime updates
-            try await realtimeService.subscribeToNotifications(userId: userId)
+            notifications = try await apiService.fetchNotifications()
         } catch {
             errorMessage = "Erro ao carregar notificações: \(error.localizedDescription)"
             print("Fetch notifications error: \(error)")
@@ -70,7 +66,6 @@ class NotificationsViewModel: ObservableObject {
     // MARK: - Handle New Notification
 
     private func handleNewNotification(_ newNotification: AppNotification) {
-        // Add to list if not already present
         if !notifications.contains(where: { $0.id == newNotification.id }) {
             notifications.insert(newNotification, at: 0)
         }
@@ -82,9 +77,8 @@ class NotificationsViewModel: ObservableObject {
         guard !notification.read else { return }
 
         do {
-            try await supabaseService.markNotificationAsRead(notificationId: notification.id)
+            try await apiService.markNotificationAsRead(notificationId: notification.id)
 
-            // Update local state
             if let index = notifications.firstIndex(where: { $0.id == notification.id }) {
                 notifications[index].read = true
             }
@@ -94,19 +88,23 @@ class NotificationsViewModel: ObservableObject {
     }
 
     func markAllAsRead(userId: UUID) async {
-        for notification in notifications where !notification.read {
-            await markAsRead(notification)
+        do {
+            try await apiService.markAllNotificationsAsRead()
+            for i in notifications.indices {
+                notifications[i].read = true
+            }
+        } catch {
+            print("Error marking all as read: \(error)")
         }
     }
 
     func deleteNotification(_ notification: AppNotification) {
-        // Remove from local state
         notifications.removeAll { $0.id == notification.id }
     }
 
     // MARK: - Cleanup
 
     func cleanup() async {
-        await realtimeService.unsubscribeFromNotifications()
+        // WebSocket cleanup handled by WebSocketService
     }
 }

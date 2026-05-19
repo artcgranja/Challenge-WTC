@@ -51,7 +51,7 @@ struct NotificationsView: View {
                     }
                     .listStyle(.plain)
                     .refreshable {
-                        if let userId = authViewModel.currentUser?.id {
+                        if let userId = authViewModel.currentProfile?.id {
                             await viewModel.refreshNotifications(userId: userId)
                         }
                     }
@@ -70,7 +70,7 @@ struct NotificationsView: View {
                     if viewModel.unreadCount > 0 {
                         Button("Marcar todas como lidas") {
                             Task {
-                                if let userId = authViewModel.currentUser?.id {
+                                if let userId = authViewModel.currentProfile?.id {
                                     await viewModel.markAllAsRead(userId: userId)
                                 }
                             }
@@ -81,7 +81,7 @@ struct NotificationsView: View {
             }
         }
         .task {
-            if let userId = authViewModel.currentUser?.id {
+            if let userId = authViewModel.currentProfile?.id {
                 await viewModel.fetchNotifications(userId: userId)
             }
         }
