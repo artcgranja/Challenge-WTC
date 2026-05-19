@@ -1,0 +1,229 @@
+<h2>Campaigns List + Compose Sheets</h2>
+<p class="subtitle">Campaign management tab and bottom sheet flows for message/campaign creation</p>
+
+<div class="split">
+  <!-- Campaign List -->
+  <div class="mockup">
+    <div class="mockup-header">CampaignListView — Campaigns Tab</div>
+    <div class="mockup-body" style="background: #F2F2F7; padding: 0; border-radius: 12px; overflow: hidden;">
+      <!-- Status bar -->
+      <div style="background: linear-gradient(135deg, #4A54D9 0%, #7379F2 100%); padding: 12px 16px 8px; color: white; font-size: 11px; display: flex; justify-content: space-between;">
+        <span>9:41</span>
+        <span>●●●●○ 🔋</span>
+      </div>
+
+      <div style="padding: 16px; min-height: 340px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <div style="font-size: 28px; font-weight: 700; color: #0F172A;">Campanhas</div>
+            <div style="font-size: 13px; color: #64748B;">5 campanhas criadas</div>
+          </div>
+          <div style="background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 10px 16px; border-radius: 14px; font-size: 14px; font-weight: 600;">+ Nova</div>
+        </div>
+
+        <!-- Filter chips -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+          <span style="background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;">Todas</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0;">Rascunho</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0;">Enviadas</span>
+        </div>
+
+        <!-- Campaign card 1 - SENT -->
+        <div style="background: white; border-radius: 14px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="background: rgba(16,185,129,0.1); color: #059669; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600;">ENVIADA</span>
+              </div>
+              <div style="font-size: 16px; font-weight: 600; color: #0F172A;">Promoção de Verão</div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 4px;">Segmento: Clientes VIP</div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="font-size: 22px; font-weight: 700; color: #4A54D9;">156</div>
+              <div style="font-size: 11px; color: #94A3B8;">enviadas</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 12px; color: #94A3B8;">Enviada em 15/05/2026</div>
+            <div style="font-size: 12px; color: #94A3B8;">por admin@wtc.com</div>
+          </div>
+        </div>
+
+        <!-- Campaign card 2 - DRAFT -->
+        <div style="background: white; border-radius: 14px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid #F59E0B;">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="background: rgba(245,158,11,0.1); color: #D97706; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600;">RASCUNHO</span>
+              </div>
+              <div style="font-size: 16px; font-weight: 600; color: #0F172A;">Black Friday Preview</div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 4px;">Segmento: Todos Ativos</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #F1F5F9;">
+            <div style="flex: 1; background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 13px; font-weight: 600;">Enviar Agora</div>
+            <div style="background: #F1F5F9; color: #64748B; padding: 10px 16px; border-radius: 10px; text-align: center; font-size: 13px; font-weight: 500;">Editar</div>
+          </div>
+        </div>
+
+        <!-- Campaign card 3 - SENT -->
+        <div style="background: white; border-radius: 14px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="background: rgba(16,185,129,0.1); color: #059669; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600;">ENVIADA</span>
+              </div>
+              <div style="font-size: 16px; font-weight: 600; color: #0F172A;">Boas-Vindas Novatos</div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 4px;">Segmento: Clientes Beta</div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="font-size: 22px; font-weight: 700; color: #4A54D9;">42</div>
+              <div style="font-size: 11px; color: #94A3B8;">enviadas</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid #F1F5F9;">
+            <div style="font-size: 12px; color: #94A3B8;">Enviada em 10/05/2026</div>
+            <div style="font-size: 12px; color: #94A3B8;">por operador@wtc.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar -->
+      <div style="background: white; border-top: 1px solid #E2E8F0; padding: 8px 0 24px; display: flex; justify-content: space-around;">
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👥</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">CRM</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">📢</div>
+          <div style="font-size: 10px; font-weight: 600; color: #4A54D9; margin-top: 2px;">Campanhas</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">✉️</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Mensagens</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👤</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Perfil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compose Sheets -->
+  <div class="mockup">
+    <div class="mockup-header">ComposeMessageSheet + CreateCampaignSheet</div>
+    <div class="mockup-body" style="background: #F2F2F7; padding: 0; border-radius: 12px; overflow: hidden;">
+
+      <!-- Sheet 1: Compose Message -->
+      <div style="background: rgba(0,0,0,0.3); padding: 40px 0 0; min-height: 220px;">
+        <div style="background: white; border-radius: 20px 20px 0 0; padding: 16px;">
+          <!-- Drag handle -->
+          <div style="width: 36px; height: 4px; background: #D1D5DB; border-radius: 2px; margin: 0 auto 16px;"></div>
+
+          <div style="font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Nova Mensagem</div>
+
+          <!-- Recipient type toggle -->
+          <div style="display: flex; background: #F1F5F9; border-radius: 10px; padding: 3px; margin-bottom: 16px;">
+            <div style="flex: 1; background: white; border-radius: 8px; padding: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #4A54D9; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">Cliente</div>
+            <div style="flex: 1; padding: 8px; text-align: center; font-size: 13px; color: #64748B;">Segmento</div>
+          </div>
+
+          <!-- Recipient picker -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #64748B; font-size: 14px;">Selecionar cliente...</span>
+            <span style="color: #94A3B8;">▾</span>
+          </div>
+
+          <!-- Title field -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Título</div>
+            <div style="font-size: 14px; color: #0F172A;">Oferta exclusiva para você</div>
+          </div>
+
+          <!-- Body field -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; min-height: 60px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Mensagem</div>
+            <div style="font-size: 14px; color: #64748B;">Escreva sua mensagem...</div>
+          </div>
+
+          <!-- Optional fields collapsed -->
+          <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+            <div style="background: #F1F5F9; padding: 8px 12px; border-radius: 10px; font-size: 12px; color: #64748B; display: flex; align-items: center; gap: 4px;">🖼️ Imagem</div>
+            <div style="background: #F1F5F9; padding: 8px 12px; border-radius: 10px; font-size: 12px; color: #64748B; display: flex; align-items: center; gap: 4px;">🔗 Botões</div>
+          </div>
+
+          <!-- Send button -->
+          <div style="background: linear-gradient(135deg, #4A54D9, #7379F2); border-radius: 14px; padding: 16px; text-align: center; color: white; font-weight: 600; font-size: 16px;">
+            Enviar Mensagem
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div style="padding: 16px; text-align: center; font-size: 12px; color: #94A3B8; background: #F2F2F7;">▼ CreateCampaignSheet ▼</div>
+
+      <!-- Sheet 2: Create Campaign -->
+      <div style="background: rgba(0,0,0,0.3); padding: 30px 0 0;">
+        <div style="background: white; border-radius: 20px 20px 0 0; padding: 16px;">
+          <!-- Drag handle -->
+          <div style="width: 36px; height: 4px; background: #D1D5DB; border-radius: 2px; margin: 0 auto 16px;"></div>
+
+          <div style="font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Nova Campanha</div>
+
+          <!-- Campaign name -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Nome da campanha</div>
+            <div style="font-size: 14px; color: #0F172A;">Black Friday 2026</div>
+          </div>
+
+          <!-- Segment picker -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Segmento</div>
+              <div style="font-size: 14px; color: #0F172A;">Clientes VIP</div>
+            </div>
+            <span style="color: #94A3B8;">▾</span>
+          </div>
+
+          <!-- Content fields -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Título da mensagem</div>
+            <div style="font-size: 14px; color: #0F172A;">🎉 Descontos imperdíveis!</div>
+          </div>
+
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; min-height: 50px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Corpo da mensagem</div>
+            <div style="font-size: 14px; color: #0F172A;">Aproveite até 50% de desconto...</div>
+          </div>
+
+          <!-- Deeplink (optional) -->
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 14px; margin-bottom: 16px;">
+            <div style="font-size: 11px; color: #94A3B8; margin-bottom: 4px;">Deeplink (opcional)</div>
+            <div style="font-size: 14px; color: #64748B;">deeplink://products</div>
+          </div>
+
+          <!-- Action buttons -->
+          <div style="display: flex; gap: 10px;">
+            <div style="flex: 1; background: #F1F5F9; border-radius: 14px; padding: 14px; text-align: center; color: #64748B; font-weight: 600; font-size: 14px;">Salvar Rascunho</div>
+            <div style="flex: 1; background: linear-gradient(135deg, #F59E0B, #F97316); border-radius: 14px; padding: 14px; text-align: center; color: white; font-weight: 600; font-size: 14px;">Criar e Enviar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>Design Notes</h3>
+  <ul>
+    <li><strong>Campaign status badges:</strong> ENVIADA = green, RASCUNHO = amber with left border accent</li>
+    <li><strong>Draft cards:</strong> Show "Enviar Agora" + "Editar" action buttons inline</li>
+    <li><strong>Sent cards:</strong> Show message count + date + sender info in footer</li>
+    <li><strong>Compose Message sheet:</strong> Segmented control toggles between "Cliente" (1:1) and "Segmento" (broadcast). Fields: recipient picker, title, body, optional image URL + action buttons</li>
+    <li><strong>Create Campaign sheet:</strong> Name, segment picker, message content (title, body), optional deeplink. Two actions: "Salvar Rascunho" (creates DRAFT) or "Criar e Enviar" (creates + immediately sends via POST /campaigns/{id}/send)</li>
+    <li><strong>"Criar e Enviar"</strong> uses campaignGradient (orange→red) to visually distinguish from normal primary actions — signals "this will send immediately"</li>
+    <li><strong>Optional fields:</strong> Image URL and action buttons collapsed behind chips to reduce form noise (progressive disclosure)</li>
+    <li><strong>All sheets:</strong> .presentationDetents([.large]), drag handle, swipe to dismiss</li>
+  </ul>
+</div>

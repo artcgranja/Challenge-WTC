@@ -1,0 +1,309 @@
+{
+  "" : {
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatApp-primary.dia",
+    "emit-module-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatApp-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatApp-primary-emit-module.dia",
+    "pch" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatApp-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatApp-primary.swiftdeps"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/App/WTCChatAppApp.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WTCChatAppApp~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Campaign.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Campaign~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Customer.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Customer~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Message.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Message~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Notification.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Notification~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Profile.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Profile~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Models/Segment.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Segment~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Services/APIService.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/APIService~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Services/NotificationService.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationService~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Services/WebSocketService.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/WebSocketService~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Utils/Constants.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Constants~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Utils/DeeplinkHandler.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/DeeplinkHandler~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Utils/Theme.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/Theme~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/ViewModels/AuthViewModel.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/AuthViewModel~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/ViewModels/CRMViewModel.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CRMViewModel~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/ViewModels/CampaignViewModel.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignViewModel~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/ViewModels/MessagesViewModel.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesViewModel~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/ViewModels/NotificationsViewModel.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsViewModel~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Auth/LoginView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Messages/MessageDetailView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessageDetailView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Messages/MessagesListView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/MessagesListView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Notifications/NotificationsView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/NotificationsView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/CampaignListView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CampaignListView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/ComposeMessageSheet.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ComposeMessageSheet~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/CreateCampaignSheet.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CreateCampaignSheet~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/CustomerDetailView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerDetailView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/CustomerListView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/CustomerListView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/OperatorMessagesView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/OperatorMessagesView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Operator/SegmentPickerView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/SegmentPickerView~partial.swiftmodule"
+  },
+  "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp/Views/Profile/ProfileView.swift" : {
+    "const-values" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.swiftconstvalues",
+    "dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.d",
+    "diagnostics" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.dia",
+    "index-unit-output-path" : "/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.o",
+    "swift-dependencies" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView.swiftdeps",
+    "swiftmodule" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/WTCChatApp.build/Debug-iphonesimulator/WTCChatApp.build/Objects-normal/arm64/ProfileView~partial.swiftmodule"
+  }
+}

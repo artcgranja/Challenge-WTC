@@ -111,6 +111,7 @@ class APIService {
             avatarUrl: response.avatarUrl,
             tags: response.tags ?? [],
             status: response.status ?? "active",
+            role: response.role,
             createdAt: Date()
         )
     }
@@ -142,6 +143,89 @@ class APIService {
 
     func markAllNotificationsAsRead() async throws {
         let _: EmptyResponse = try await requestNoContent("PUT", path: "/notifications/read-all")
+    }
+
+    // MARK: - Customers (OPERATOR)
+
+    func fetchCustomers() async throws -> [Customer] {
+        return try await request("GET", path: "/customers")
+    }
+
+    func fetchCustomer(id: String) async throws -> Customer {
+        return try await request("GET", path: "/customers/\(id)")
+    }
+
+    func fetchTimeline(customerId: String) async throws -> TimelineResponse {
+        return try await request("GET", path: "/customers/\(customerId)/timeline")
+    }
+
+    func addNote(customerId: String, text: String) async throws {
+        let body = ["text": text]
+        let _: Customer = try await request("POST", path: "/customers/\(customerId)/notes", body: body)
+    }
+
+    // MARK: - Messages (OPERATOR)
+
+    func sendOperatorMessage(type: String = "chat", recipientId: String? = nil, segmentTags: [String]? = nil, content: MessageContent) async throws -> Message {
+        var body: [String: Any] = [
+            "type": type,
+            "content": [
+                "title": content.title,
+                "body": content.body
+            ] as [String: Any]
+        ]
+        if let recipientId = recipientId { body["recipient_id"] = recipientId }
+        if let segmentTags = segmentTags { body["segment_tags"] = segmentTags }
+        if let imageUrl = content.imageUrl {
+            var contentDict = body["content"] as! [String: Any]
+            contentDict["image_url"] = imageUrl
+            body["content"] = contentDict
+        }
+        if let buttons = content.buttons {
+            var contentDict = body["content"] as! [String: Any]
+            contentDict["buttons"] = buttons.map { ["label": $0.label, "action": $0.action] }
+            body["content"] = contentDict
+        }
+        return try await requestRaw("POST", path: "/messages", jsonBody: body)
+    }
+
+    func fetchSentMessages() async throws -> [Message] {
+        guard let userId = currentUserId else { throw APIError.notAuthenticated }
+        return try await request("GET", path: "/messages/sent/\(userId)")
+    }
+
+    // MARK: - Campaigns (OPERATOR)
+
+    func fetchCampaigns() async throws -> [Campaign] {
+        return try await request("GET", path: "/campaigns")
+    }
+
+    func createCampaign(name: String, segmentId: String, content: MessageContent, deeplink: String? = nil) async throws -> Campaign {
+        var body: [String: Any] = [
+            "name": name,
+            "segment_id": segmentId,
+            "content": [
+                "title": content.title,
+                "body": content.body
+            ] as [String: Any]
+        ]
+        if let deeplink = deeplink { body["deeplink"] = deeplink }
+        if let imageUrl = content.imageUrl {
+            var contentDict = body["content"] as! [String: Any]
+            contentDict["image_url"] = imageUrl
+            body["content"] = contentDict
+        }
+        return try await requestRaw("POST", path: "/campaigns", jsonBody: body)
+    }
+
+    func sendCampaign(id: String) async throws -> Campaign {
+        return try await request("POST", path: "/campaigns/\(id)/send")
+    }
+
+    // MARK: - Segments (OPERATOR)
+
+    func fetchSegments() async throws -> [Segment] {
+        return try await request("GET", path: "/segments")
     }
 
     // MARK: - Network Layer

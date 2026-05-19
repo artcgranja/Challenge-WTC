@@ -46,4 +46,9 @@ public class MessageController {
     public ResponseEntity<Message> toggleStar(@PathVariable String id) {
         return ResponseEntity.ok(messageService.toggleStar(id));
     }
+
+    @GetMapping("/messages/sent/{senderId}")
+    public ResponseEntity<List<Message>> getSentMessages(@PathVariable String senderId) {
+        return ResponseEntity.ok(messageService.getSentMessages(senderId));
+    }
 }

@@ -1,0 +1,203 @@
+<h2>OPERATOR TabView + CRM Customer List</h2>
+<p class="subtitle">Tab bar with 4 tabs and the main CRM screen with compact customer rows</p>
+
+<div class="split">
+  <!-- Tab Bar -->
+  <div class="mockup">
+    <div class="mockup-header">OperatorTabView — Tab Bar</div>
+    <div class="mockup-body" style="background: #F2F2F7; padding: 0; border-radius: 12px; overflow: hidden;">
+      <!-- Status bar -->
+      <div style="background: linear-gradient(135deg, #4A54D9 0%, #7379F2 100%); padding: 12px 16px 8px; color: white; font-size: 11px; display: flex; justify-content: space-between;">
+        <span>9:41</span>
+        <span style="display: flex; gap: 4px;">
+          <span>●●●●○</span>
+          <span>🔋</span>
+        </span>
+      </div>
+
+      <!-- Content placeholder -->
+      <div style="padding: 16px; min-height: 280px;">
+        <div style="font-size: 28px; font-weight: 700; color: #0F172A; margin-bottom: 4px;">Clientes</div>
+        <div style="font-size: 13px; color: #64748B; margin-bottom: 16px;">12 clientes ativos</div>
+
+        <!-- Search bar -->
+        <div style="background: white; border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+          <span style="color: #94A3B8;">🔍</span>
+          <span style="color: #94A3B8; font-size: 14px;">Buscar clientes...</span>
+        </div>
+
+        <!-- Filter chips -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto;">
+          <span style="background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap;">Todos</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0; white-space: nowrap;">VIP</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0; white-space: nowrap;">Ativos</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0; white-space: nowrap;">Beta</span>
+        </div>
+
+        <!-- Customer rows -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Row 1 -->
+          <div style="background: white; border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div style="width: 44px; height: 44px; border-radius: 22px; background: linear-gradient(135deg, #4A54D9, #7379F2); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px; flex-shrink: 0;">JP</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">João Pereira</span>
+                <span style="width: 8px; height: 8px; border-radius: 4px; background: #22C55E;"></span>
+              </div>
+              <div style="display: flex; gap: 4px; margin-top: 4px;">
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">vip</span>
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">ativo</span>
+              </div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="background: rgba(16,185,129,0.1); color: #059669; padding: 4px 10px; border-radius: 10px; font-size: 13px; font-weight: 700;">85</div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div style="background: white; border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div style="width: 44px; height: 44px; border-radius: 22px; background: linear-gradient(135deg, #06B6A0, #10DBC8); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px; flex-shrink: 0;">MS</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">Maria Silva</span>
+                <span style="width: 8px; height: 8px; border-radius: 4px; background: #22C55E;"></span>
+              </div>
+              <div style="display: flex; gap: 4px; margin-top: 4px;">
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">ativo</span>
+              </div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="background: rgba(245,158,11,0.1); color: #D97706; padding: 4px 10px; border-radius: 10px; font-size: 13px; font-weight: 700;">62</div>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div style="background: white; border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div style="width: 44px; height: 44px; border-radius: 22px; background: linear-gradient(135deg, #F59E0B, #F97316); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px; flex-shrink: 0;">PC</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">Pedro Costa</span>
+                <span style="width: 8px; height: 8px; border-radius: 4px; background: #22C55E;"></span>
+              </div>
+              <div style="display: flex; gap: 4px; margin-top: 4px;">
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">vip</span>
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">beta</span>
+                <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500;">ativo</span>
+              </div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+              <div style="background: rgba(16,185,129,0.1); color: #059669; padding: 4px 10px; border-radius: 10px; font-size: 13px; font-weight: 700;">92</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar -->
+      <div style="background: white; border-top: 1px solid #E2E8F0; padding: 8px 0 24px; display: flex; justify-content: space-around;">
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👥</div>
+          <div style="font-size: 10px; font-weight: 600; color: #4A54D9; margin-top: 2px;">CRM</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">📢</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Campanhas</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">✉️</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Mensagens</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👤</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Perfil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Detail -->
+  <div class="mockup">
+    <div class="mockup-header">CustomerDetailView — 360° Profile</div>
+    <div class="mockup-body" style="background: #F2F2F7; padding: 0; border-radius: 12px; overflow: hidden;">
+      <!-- Status bar -->
+      <div style="background: linear-gradient(135deg, #4A54D9 0%, #7379F2 100%); padding: 12px 16px 8px; color: white; font-size: 11px; display: flex; justify-content: space-between;">
+        <span>9:41</span>
+        <span>●●●●○ 🔋</span>
+      </div>
+
+      <!-- Nav bar -->
+      <div style="background: linear-gradient(135deg, #4A54D9 0%, #7379F2 100%); padding: 8px 16px 16px; display: flex; align-items: center; gap: 8px;">
+        <span style="color: white; font-size: 16px;">‹ Clientes</span>
+        <span style="flex: 1;"></span>
+        <span style="color: white; font-size: 14px; background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 20px;">✉️ Enviar</span>
+      </div>
+
+      <!-- Profile header -->
+      <div style="background: white; margin: 12px; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        <div style="width: 72px; height: 72px; border-radius: 36px; background: linear-gradient(135deg, #4A54D9, #7379F2); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 28px; margin: 0 auto 12px;">JP</div>
+        <div style="font-size: 20px; font-weight: 700; color: #0F172A;">João Pereira</div>
+        <div style="font-size: 13px; color: #64748B; margin-top: 2px;">joao@test.com</div>
+        <div style="display: flex; justify-content: center; gap: 6px; margin-top: 10px;">
+          <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 3px 10px; border-radius: 10px; font-size: 12px; font-weight: 500;">vip</span>
+          <span style="background: rgba(74,84,217,0.1); color: #4A54D9; padding: 3px 10px; border-radius: 10px; font-size: 12px; font-weight: 500;">ativo</span>
+        </div>
+        <!-- Stats row -->
+        <div style="display: flex; justify-content: space-around; margin-top: 16px; padding-top: 16px; border-top: 1px solid #F1F5F9;">
+          <div>
+            <div style="font-size: 24px; font-weight: 700; color: #059669;">85</div>
+            <div style="font-size: 11px; color: #94A3B8;">Score</div>
+          </div>
+          <div>
+            <div style="font-size: 24px; font-weight: 700; color: #4A54D9;">12</div>
+            <div style="font-size: 11px; color: #94A3B8;">Mensagens</div>
+          </div>
+          <div>
+            <div style="font-size: 24px; font-weight: 700; color: #F59E0B;">3</div>
+            <div style="font-size: 11px; color: #94A3B8;">Notas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline section -->
+      <div style="margin: 0 12px;">
+        <div style="font-size: 16px; font-weight: 600; color: #0F172A; margin-bottom: 10px; padding: 0 4px;">Timeline</div>
+
+        <!-- Timeline item 1 -->
+        <div style="background: white; border-radius: 14px; padding: 14px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 16px; background: rgba(74,84,217,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;">💬</div>
+          <div style="flex: 1;">
+            <div style="font-size: 13px; font-weight: 600; color: #0F172A;">Campanha: Promo Verão</div>
+            <div style="font-size: 12px; color: #64748B; margin-top: 2px;">Recebida e lida</div>
+            <div style="font-size: 11px; color: #94A3B8; margin-top: 4px;">Há 2 dias</div>
+          </div>
+        </div>
+
+        <!-- Timeline item 2 -->
+        <div style="background: white; border-radius: 14px; padding: 14px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 16px; background: rgba(245,158,11,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0;">📝</div>
+          <div style="flex: 1;">
+            <div style="font-size: 13px; font-weight: 600; color: #0F172A;">Nota do operador</div>
+            <div style="font-size: 12px; color: #64748B; margin-top: 2px;">Cliente demonstrou interesse no plano premium</div>
+            <div style="font-size: 11px; color: #94A3B8; margin-top: 4px;">Há 5 dias</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add note button -->
+      <div style="margin: 12px; background: linear-gradient(135deg, #4A54D9, #7379F2); border-radius: 14px; padding: 14px; text-align: center; color: white; font-weight: 600; font-size: 15px;">
+        + Adicionar Nota
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>Design Notes</h3>
+  <ul>
+    <li><strong>Score badge colors:</strong> Green (70-100), Amber (40-69), Red (0-39) — semantic meaning at a glance</li>
+    <li><strong>Status dot:</strong> Green = active, Gray = inactive, Yellow = pending — consistent with existing app</li>
+    <li><strong>Avatar initials:</strong> Same pattern as existing ProfileView — gradient background, white text</li>
+    <li><strong>Filter chips:</strong> Match existing MessagesListView filter pattern (horizontal scroll, Theme.primaryGradient selected)</li>
+    <li><strong>Cards:</strong> 14pt corner radius (Theme.cornerMD), Theme.cardShadow(), white background</li>
+    <li><strong>Tab bar icons:</strong> SF Symbols (person.2.fill, megaphone.fill, message.fill, person.fill) — NOT emojis (shown here for HTML only)</li>
+  </ul>
+</div>

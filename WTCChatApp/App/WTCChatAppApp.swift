@@ -74,9 +74,15 @@ struct ContentView: View {
             if authViewModel.isLoading {
                 SplashView()
             } else if authViewModel.isAuthenticated {
-                MainTabView()
-                    .environmentObject(authViewModel)
-                    .transition(.opacity)
+                if authViewModel.currentProfile?.isOperator == true {
+                    OperatorTabView()
+                        .environmentObject(authViewModel)
+                        .transition(.opacity)
+                } else {
+                    MainTabView()
+                        .environmentObject(authViewModel)
+                        .transition(.opacity)
+                }
             } else {
                 LoginView()
                     .environmentObject(authViewModel)
@@ -170,6 +176,53 @@ struct MainTabView: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - Operator Tab View
+
+struct OperatorTabView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @StateObject private var crmViewModel = CRMViewModel()
+    @StateObject private var campaignViewModel = CampaignViewModel()
+    @State private var selectedTab = 0
+
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            CustomerListView()
+                .environmentObject(authViewModel)
+                .environmentObject(crmViewModel)
+                .environmentObject(campaignViewModel)
+                .tabItem {
+                    Label("CRM", systemImage: "person.2.fill")
+                }
+                .tag(0)
+
+            CampaignListView()
+                .environmentObject(authViewModel)
+                .environmentObject(campaignViewModel)
+                .tabItem {
+                    Label("Campanhas", systemImage: "megaphone.fill")
+                }
+                .tag(1)
+
+            OperatorMessagesView()
+                .environmentObject(authViewModel)
+                .environmentObject(campaignViewModel)
+                .environmentObject(crmViewModel)
+                .tabItem {
+                    Label("Mensagens", systemImage: "message.fill")
+                }
+                .tag(2)
+
+            ProfileView()
+                .environmentObject(authViewModel)
+                .tabItem {
+                    Label("Perfil", systemImage: "person.fill")
+                }
+                .tag(3)
+        }
+        .tint(Theme.primary)
     }
 }
 

@@ -7,6 +7,7 @@ import com.wtc.chatapp.model.CustomerStatus;
 import com.wtc.chatapp.model.Note;
 import com.wtc.chatapp.repository.CustomerRepository;
 import com.wtc.chatapp.repository.MessageRepository;
+import com.wtc.chatapp.repository.UserRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -22,23 +23,48 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final MessageRepository messageRepository;
+    private final UserRepository userRepository;
 
-    public CustomerService(CustomerRepository customerRepository, MessageRepository messageRepository) {
+    public CustomerService(CustomerRepository customerRepository, MessageRepository messageRepository, UserRepository userRepository) {
         this.customerRepository = customerRepository;
         this.messageRepository = messageRepository;
+        this.userRepository = userRepository;
     }
 
-    public List<Customer> list(String tag, String status, Integer minScore) {
+    private Map<String, Object> enrichCustomer(Customer customer) {
+        Map<String, Object> enriched = new HashMap<>();
+        enriched.put("id", customer.getId());
+        enriched.put("user_id", customer.getUserId());
+        enriched.put("tags", customer.getTags());
+        enriched.put("score", customer.getScore());
+        enriched.put("status", customer.getStatus());
+        enriched.put("notes", customer.getNotes());
+        enriched.put("segment_ids", customer.getSegmentIds());
+        enriched.put("created_at", customer.getCreatedAt());
+
+        if (customer.getUserId() != null) {
+            userRepository.findById(customer.getUserId()).ifPresent(user -> {
+                enriched.put("full_name", user.getFullName());
+                enriched.put("email", user.getEmail());
+                enriched.put("phone", user.getPhone());
+                enriched.put("avatar_url", user.getAvatarUrl());
+            });
+        }
+        return enriched;
+    }
+
+    public List<Map<String, Object>> list(String tag, String status, Integer minScore) {
+        List<Customer> customers;
         if (tag != null) {
-            return customerRepository.findByTagsContaining(tag);
+            customers = customerRepository.findByTagsContaining(tag);
+        } else if (status != null) {
+            customers = customerRepository.findByStatus(CustomerStatus.valueOf(status.toUpperCase()));
+        } else if (minScore != null) {
+            customers = customerRepository.findByScoreGreaterThanEqual(minScore);
+        } else {
+            customers = customerRepository.findAll();
         }
-        if (status != null) {
-            return customerRepository.findByStatus(CustomerStatus.valueOf(status.toUpperCase()));
-        }
-        if (minScore != null) {
-            return customerRepository.findByScoreGreaterThanEqual(minScore);
-        }
-        return customerRepository.findAll();
+        return customers.stream().map(this::enrichCustomer).toList();
     }
 
     public Customer getById(String id) {
@@ -68,7 +94,7 @@ public class CustomerService {
     public Map<String, Object> getTimeline(String id) {
         Customer customer = getById(id);
         Map<String, Object> timeline = new HashMap<>();
-        timeline.put("customer", customer);
+        timeline.put("customer", enrichCustomer(customer));
 
         if (customer.getUserId() != null) {
             List<String> tags = customer.getTags();

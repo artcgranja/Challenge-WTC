@@ -63,6 +63,7 @@ class AuthViewModel: ObservableObject {
                 avatarUrl: response.avatarUrl,
                 tags: response.tags ?? [],
                 status: response.status ?? "active",
+                role: response.role,
                 createdAt: Date()
             )
             isAuthenticated = true
