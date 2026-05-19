@@ -1,10 +1,3 @@
-//
-//  WTCChatAppApp.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import SwiftUI
 import UserNotifications
 
@@ -14,13 +7,11 @@ struct WTCChatAppApp: App {
     @StateObject private var notificationService = NotificationService.shared
 
     init() {
-        // Request notification permissions
         Task {
             await NotificationService.shared.requestAuthorization()
         }
-
-        // Configure notification delegate
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
+        configureAppearance()
     }
 
     var body: some Scene {
@@ -37,7 +28,6 @@ struct WTCChatAppApp: App {
                                     notification: notification,
                                     onTap: {
                                         notificationService.dismissInAppNotification()
-                                        // TODO: Navigate to message
                                     },
                                     onDismiss: {
                                         notificationService.dismissInAppNotification()
@@ -45,7 +35,7 @@ struct WTCChatAppApp: App {
                                 )
                                 .padding(.top, 50)
                                 .transition(.move(edge: .top).combined(with: .opacity))
-                                .animation(.spring(), value: notificationService.shouldShowInAppNotification)
+                                .animation(.spring(response: 0.4, dampingFraction: 0.75), value: notificationService.shouldShowInAppNotification)
 
                                 Spacer()
                             }
@@ -53,6 +43,24 @@ struct WTCChatAppApp: App {
                     }
                 )
         }
+    }
+
+    private func configureAppearance() {
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.configureWithDefaultBackground()
+        navAppearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
+        navAppearance.largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 34, weight: .bold)]
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+
+        let tabAppearance = UITabBarAppearance()
+        tabAppearance.configureWithDefaultBackground()
+        UITabBar.appearance().standardAppearance = tabAppearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        }
+
+        UITabBar.appearance().tintColor = UIColor(Theme.primary)
     }
 }
 
@@ -68,38 +76,56 @@ struct ContentView: View {
             } else if authViewModel.isAuthenticated {
                 MainTabView()
                     .environmentObject(authViewModel)
+                    .transition(.opacity)
             } else {
                 LoginView()
                     .environmentObject(authViewModel)
+                    .transition(.opacity)
             }
         }
+        .animation(.easeInOut(duration: 0.3), value: authViewModel.isAuthenticated)
     }
 }
 
 // MARK: - Splash View
 
 struct SplashView: View {
+    @State private var scale: CGFloat = 0.85
+    @State private var opacity: Double = 0
+
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color.blue.opacity(0.6), Color.purple.opacity(0.8)]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            Theme.heroGradient
+                .ignoresSafeArea()
 
-            VStack(spacing: 20) {
-                Image(systemName: "message.fill")
-                    .font(.system(size: 80))
-                    .foregroundColor(.white)
+            VStack(spacing: 24) {
+                ZStack {
+                    Circle()
+                        .fill(Color.white.opacity(0.12))
+                        .frame(width: 120, height: 120)
+
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                        .font(.system(size: 52, weight: .medium))
+                        .foregroundColor(.white)
+                }
+                .scaleEffect(scale)
 
                 Text(Constants.appName)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(.system(size: 34, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
 
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .scaleEffect(1.1)
+            }
+            .opacity(opacity)
+            .onAppear {
+                withAnimation(.spring(response: 0.8, dampingFraction: 0.6)) {
+                    scale = 1.0
+                }
+                withAnimation(.easeOut(duration: 0.4)) {
+                    opacity = 1
+                }
             }
         }
     }
@@ -131,6 +157,7 @@ struct MainTabView: View {
             }
             .tag(1)
         }
+        .tint(Theme.primary)
         .sheet(isPresented: $showNotifications) {
             NotificationsView()
                 .environmentObject(authViewModel)
@@ -138,7 +165,6 @@ struct MainTabView: View {
         .onChange(of: selectedTab) { newValue in
             if newValue == 1 {
                 showNotifications = true
-                // Reset to messages tab after showing notifications
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     selectedTab = 0
                 }
@@ -156,40 +182,31 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
         super.init()
     }
 
-    // Handle notification when app is in foreground
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        // Show banner and sound even when app is in foreground
         completionHandler([.banner, .sound, .badge])
     }
 
-    // Handle notification tap
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
         let userInfo = response.notification.request.content.userInfo
-
-        // Navigate to message if messageId is present
         if let messageIdString = userInfo["messageId"] as? String,
            let messageId = UUID(uuidString: messageIdString) {
-            // Post notification to navigate to message
             NotificationCenter.default.post(
                 name: NSNotification.Name("NavigateToMessage"),
                 object: nil,
                 userInfo: ["messageId": messageId]
             )
         }
-
         completionHandler()
     }
 }
-
-// MARK: - Preview
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

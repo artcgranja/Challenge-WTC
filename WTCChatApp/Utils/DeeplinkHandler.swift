@@ -1,10 +1,3 @@
-//
-//  DeeplinkHandler.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import Foundation
 import SwiftUI
 import UIKit
@@ -21,19 +14,13 @@ class DeeplinkHandler: ObservableObject {
     }
 
     func handle(action: String) -> Bool {
-        // Handle deeplink:// actions
         if action.hasPrefix("deeplink://") {
             return handleDeeplink(action)
-        }
-        // Handle copy: actions
-        else if action.hasPrefix("copy:") {
+        } else if action.hasPrefix("copy:") {
             return handleCopy(action)
-        }
-        // Handle https:// actions
-        else if action.hasPrefix("https://") || action.hasPrefix("http://") {
+        } else if action.hasPrefix("https://") || action.hasPrefix("http://") {
             return handleExternalLink(action)
         }
-
         return false
     }
 
@@ -72,7 +59,6 @@ class DeeplinkHandler: ObservableObject {
         let text = action.replacingOccurrences(of: "copy:", with: "")
         UIPasteboard.general.string = text
 
-        // Show toast notification
         NotificationCenter.default.post(
             name: NSNotification.Name("ShowToast"),
             object: nil,
@@ -95,7 +81,8 @@ class DeeplinkHandler: ObservableObject {
     }
 }
 
-// Toast View for feedback
+// MARK: - Toast View
+
 struct ToastView: View {
     let message: String
     @Binding var isShowing: Bool
@@ -104,19 +91,29 @@ struct ToastView: View {
         VStack {
             Spacer()
             if isShowing {
-                Text(message)
-                    .padding()
-                    .background(Color.black.opacity(0.8))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            withAnimation {
-                                isShowing = false
-                            }
+                HStack(spacing: 10) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(Theme.success)
+
+                    Text(message)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.primary)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(.regularMaterial)
+                .cornerRadius(Theme.cornerMD)
+                .modifier(ElevatedShadow())
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                            isShowing = false
                         }
                     }
+                }
             }
         }
         .padding(.bottom, 50)

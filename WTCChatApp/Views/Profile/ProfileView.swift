@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import SwiftUI
 
 struct ProfileView: View {
@@ -14,96 +7,96 @@ struct ProfileView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 30) {
-                    // Profile Header
-                    VStack(spacing: 16) {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 28) {
+                    // Profile Header Card
+                    VStack(spacing: 18) {
                         // Avatar
-                        if let avatarUrl = authViewModel.currentProfile?.avatarUrl,
-                           let url = URL(string: avatarUrl) {
-                            AsyncImage(url: url, transaction: Transaction(animation: .easeInOut)) { phase in
-                                switch phase {
-                                case .empty:
-                                    initialsView
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .transition(.opacity)
-                                case .failure:
-                                    initialsView
-                                @unknown default:
-                                    EmptyView()
+                        ZStack {
+                            if let avatarUrl = authViewModel.currentProfile?.avatarUrl,
+                               let url = URL(string: avatarUrl) {
+                                AsyncImage(url: url, transaction: Transaction(animation: .easeInOut)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        initialsView
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .transition(.opacity)
+                                    case .failure:
+                                        initialsView
+                                    @unknown default:
+                                        EmptyView()
+                                    }
                                 }
+                                .frame(width: Theme.avatarLG, height: Theme.avatarLG)
+                                .clipShape(Circle())
+                            } else {
+                                initialsView
                             }
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .overlay(
-                                Circle()
-                                    .stroke(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [Color.blue, Color.purple]),
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        ),
-                                        lineWidth: 3
-                                    )
-                            )
-                            .shadow(radius: 10)
-                        } else {
-                            initialsView
-                                .shadow(radius: 10)
+                        }
+                        .overlay(
+                            Circle()
+                                .stroke(Theme.primaryGradient, lineWidth: 3)
+                                .frame(width: Theme.avatarLG + 6, height: Theme.avatarLG + 6)
+                        )
+                        .modifier(ElevatedShadow())
+
+                        VStack(spacing: 6) {
+                            Text(authViewModel.currentProfile?.fullName ?? "Usuário")
+                                .font(.title2)
+                                .fontWeight(.bold)
+
+                            Text(authViewModel.currentProfile?.email ?? "")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
 
-                        // Name
-                        Text(authViewModel.currentProfile?.fullName ?? "Usuário")
-                            .font(.title2)
-                            .fontWeight(.bold)
-
-                        // Email
-                        Text(authViewModel.currentProfile?.email ?? "")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-
                         // Status badge
-                        HStack {
+                        HStack(spacing: 6) {
                             Circle()
                                 .fill(statusColor)
                                 .frame(width: 8, height: 8)
 
                             Text(statusText)
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .fontWeight(.medium)
+                                .foregroundColor(statusColor)
                         }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(Color(UIColor.secondarySystemBackground))
-                        .cornerRadius(20)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 7)
+                        .background(statusColor.opacity(0.1))
+                        .cornerRadius(Theme.cornerLG)
                     }
-                    .padding(.top, 20)
+                    .padding(.vertical, 24)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(UIColor.systemBackground))
+                    .cornerRadius(Theme.cornerLG)
+                    .modifier(CardShadow())
 
-                    // Profile Info
-                    VStack(spacing: 16) {
-                        // Phone
+                    // Info Section
+                    VStack(spacing: 2) {
                         if let phone = authViewModel.currentProfile?.phone {
                             ProfileInfoRow(
                                 icon: "phone.fill",
                                 label: "Telefone",
-                                value: phone
+                                value: phone,
+                                iconColor: Theme.success
                             )
                         }
 
-                        // Tags
                         if let tags = authViewModel.currentProfile?.tags, !tags.isEmpty {
-                            VStack(alignment: .leading, spacing: 8) {
-                                HStack {
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 8) {
                                     Image(systemName: "tag.fill")
-                                        .foregroundColor(.blue)
+                                        .font(.system(size: 14))
+                                        .foregroundColor(Theme.primary)
+                                        .frame(width: 30)
                                     Text("Tags")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                                 }
-                                .padding(.horizontal)
 
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing: 8) {
@@ -111,91 +104,88 @@ struct ProfileView: View {
                                             TagView(tag: tag)
                                         }
                                     }
-                                    .padding(.horizontal)
                                 }
                             }
-                            .padding(.vertical, 8)
-                            .background(Color(UIColor.secondarySystemBackground))
-                            .cornerRadius(12)
+                            .padding(16)
+                            .background(Color(UIColor.systemBackground))
                         }
 
-                        // Created date
                         if let createdAt = authViewModel.currentProfile?.createdAt {
                             ProfileInfoRow(
                                 icon: "calendar",
                                 label: "Membro desde",
-                                value: createdAt.formatted(date: .long, time: .omitted)
+                                value: createdAt.formatted(date: .long, time: .omitted),
+                                iconColor: Theme.warning
                             )
                         }
                     }
-                    .padding(.horizontal)
+                    .cornerRadius(Theme.cornerMD)
+                    .modifier(CardShadow())
 
                     // Actions
-                    VStack(spacing: 12) {
-                        // Refresh profile button
+                    VStack(spacing: 10) {
                         Button(action: {
-                            Task {
-                                await authViewModel.refreshProfile()
-                            }
+                            Task { await authViewModel.refreshProfile() }
                         }) {
-                            HStack {
+                            HStack(spacing: 10) {
                                 Image(systemName: "arrow.clockwise")
+                                    .font(.system(size: 15, weight: .semibold))
                                 Text("Atualizar Perfil")
+                                    .font(.system(size: 15, weight: .semibold))
                             }
                             .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.blue.opacity(0.1))
-                            .foregroundColor(.blue)
-                            .cornerRadius(12)
+                            .padding(.vertical, 15)
+                            .background(Theme.primary.opacity(0.1))
+                            .foregroundColor(Theme.primary)
+                            .cornerRadius(Theme.cornerMD)
                         }
 
-                        // Logout button
-                        Button(action: {
-                            showLogoutAlert = true
-                        }) {
-                            HStack {
-                                Image(systemName: "arrow.right.square")
+                        Button(action: { showLogoutAlert = true }) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "rectangle.portrait.and.arrow.right")
+                                    .font(.system(size: 15, weight: .semibold))
                                 Text("Sair")
+                                    .font(.system(size: 15, weight: .semibold))
                             }
                             .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.red.opacity(0.1))
-                            .foregroundColor(.red)
-                            .cornerRadius(12)
+                            .padding(.vertical, 15)
+                            .background(Theme.danger.opacity(0.08))
+                            .foregroundColor(Theme.danger)
+                            .cornerRadius(Theme.cornerMD)
                         }
                     }
-                    .padding(.horizontal)
 
                     // App info
                     VStack(spacing: 4) {
                         Text(Constants.appName)
-                            .font(.caption)
+                            .font(.footnote)
+                            .fontWeight(.medium)
                             .foregroundColor(.secondary)
 
                         Text("Versão 1.0.0")
                             .font(.caption2)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.secondary.opacity(0.6))
                     }
-                    .padding(.top, 20)
-                    .padding(.bottom, 40)
+                    .padding(.top, 8)
+                    .padding(.bottom, 32)
                 }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
             }
-            .background(Color(UIColor.systemGroupedBackground))
+            .background(Theme.screenBackground)
             .navigationTitle("Perfil")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Fechar") {
-                        dismiss()
+                    Button(action: { dismiss() }) {
+                        Text("Fechar").fontWeight(.medium)
                     }
                 }
             }
             .alert("Sair", isPresented: $showLogoutAlert) {
                 Button("Cancelar", role: .cancel) {}
                 Button("Sair", role: .destructive) {
-                    Task {
-                        await authViewModel.signOut()
-                    }
+                    Task { await authViewModel.signOut() }
                 }
             } message: {
                 Text("Tem certeza que deseja sair?")
@@ -204,72 +194,45 @@ struct ProfileView: View {
     }
 
     private var initials: String {
-        guard let fullName = authViewModel.currentProfile?.fullName else {
-            return "?"
-        }
-
+        guard let fullName = authViewModel.currentProfile?.fullName else { return "?" }
         let components = fullName.split(separator: " ")
         if components.count >= 2 {
-            let first = components[0].prefix(1)
-            let last = components[1].prefix(1)
-            return "\(first)\(last)".uppercased()
+            return "\(components[0].prefix(1))\(components[1].prefix(1))".uppercased()
         } else if let first = components.first {
             return String(first.prefix(1)).uppercased()
         }
-
         return "?"
     }
 
     private var statusColor: Color {
-        guard let status = authViewModel.currentProfile?.status else {
-            return .gray
-        }
-
+        guard let status = authViewModel.currentProfile?.status else { return .gray }
         switch status {
-        case "active":
-            return .green
-        case "inactive":
-            return .gray
-        case "pending":
-            return .orange
-        default:
-            return .gray
+        case "active": return Theme.success
+        case "inactive": return .gray
+        case "pending": return Theme.warning
+        default: return .gray
         }
     }
 
     private var initialsView: some View {
         ZStack {
             Circle()
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [Color.blue, Color.purple]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .frame(width: 100, height: 100)
+                .fill(Theme.primaryGradient)
+                .frame(width: Theme.avatarLG, height: Theme.avatarLG)
 
             Text(initials)
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.system(size: 36, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
         }
     }
 
     private var statusText: String {
-        guard let status = authViewModel.currentProfile?.status else {
-            return "Desconhecido"
-        }
-
+        guard let status = authViewModel.currentProfile?.status else { return "Desconhecido" }
         switch status {
-        case "active":
-            return "Ativo"
-        case "inactive":
-            return "Inativo"
-        case "pending":
-            return "Pendente"
-        default:
-            return status.capitalized
+        case "active": return "Ativo"
+        case "inactive": return "Inativo"
+        case "pending": return "Pendente"
+        default: return status.capitalized
         }
     }
 }
@@ -280,11 +243,13 @@ struct ProfileInfoRow: View {
     let icon: String
     let label: String
     let value: String
+    var iconColor: Color = Theme.primary
 
     var body: some View {
-        HStack {
+        HStack(spacing: 14) {
             Image(systemName: icon)
-                .foregroundColor(.blue)
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(iconColor)
                 .frame(width: 30)
 
             VStack(alignment: .leading, spacing: 2) {
@@ -294,13 +259,13 @@ struct ProfileInfoRow: View {
 
                 Text(value)
                     .font(.body)
+                    .fontWeight(.medium)
             }
 
             Spacer()
         }
-        .padding()
-        .background(Color(UIColor.secondarySystemBackground))
-        .cornerRadius(12)
+        .padding(16)
+        .background(Color(UIColor.systemBackground))
     }
 }
 
@@ -312,22 +277,14 @@ struct TagView: View {
     var body: some View {
         Text(tag)
             .font(.caption)
-            .fontWeight(.medium)
-            .foregroundColor(.white)
+            .fontWeight(.semibold)
+            .foregroundColor(Theme.primary)
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
-            .background(
-                LinearGradient(
-                    gradient: Gradient(colors: [Color.blue, Color.purple]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-            )
-            .cornerRadius(20)
+            .background(Theme.primary.opacity(0.1))
+            .cornerRadius(Theme.cornerLG)
     }
 }
-
-// MARK: - Preview
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

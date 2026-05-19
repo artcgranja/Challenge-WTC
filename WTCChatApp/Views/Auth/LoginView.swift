@@ -1,10 +1,3 @@
-//
-//  LoginView.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import SwiftUI
 
 struct LoginView: View {
@@ -13,130 +6,170 @@ struct LoginView: View {
     @State private var password = ""
     @State private var showForgotPassword = false
     @State private var resetEmail = ""
+    @State private var logoScale: CGFloat = 0.8
+    @State private var formOpacity: Double = 0
 
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                gradient: Gradient(colors: [Color.blue.opacity(0.6), Color.purple.opacity(0.8)]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Theme.heroGradient
+                .ignoresSafeArea()
+
+            // Decorative circles
+            GeometryReader { geo in
+                Circle()
+                    .fill(Color.white.opacity(0.06))
+                    .frame(width: geo.size.width * 0.7)
+                    .offset(x: -geo.size.width * 0.2, y: -geo.size.height * 0.15)
+
+                Circle()
+                    .fill(Color.white.opacity(0.04))
+                    .frame(width: geo.size.width * 0.5)
+                    .offset(x: geo.size.width * 0.55, y: geo.size.height * 0.6)
+            }
             .ignoresSafeArea()
 
-            VStack(spacing: 30) {
-                // Logo and title
-                VStack(spacing: 10) {
-                    Image(systemName: "message.fill")
-                        .font(.system(size: 80))
-                        .foregroundColor(.white)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 36) {
+                    Spacer().frame(height: 40)
 
-                    Text(Constants.appName)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
+                    // Logo
+                    VStack(spacing: 14) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.white.opacity(0.15))
+                                .frame(width: 110, height: 110)
 
-                    Text("Conecte-se com seus clientes")
-                        .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.8))
-                }
-                .padding(.bottom, 30)
+                            Image(systemName: "bubble.left.and.bubble.right.fill")
+                                .font(.system(size: 48, weight: .medium))
+                                .foregroundStyle(.white)
+                        }
+                        .scaleEffect(logoScale)
+                        .onAppear {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+                                logoScale = 1.0
+                            }
+                        }
 
-                // Login form
-                VStack(spacing: 20) {
-                    // Email field
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Email")
+                        Text(Constants.appName)
+                            .font(.system(size: 34, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+
+                        Text("Conecte-se com seus clientes")
                             .font(.subheadline)
-                            .foregroundColor(.white.opacity(0.9))
-
-                        TextField("seu@email.com", text: $email)
-                            .textFieldStyle(CustomTextFieldStyle())
-                            .textContentType(.emailAddress)
-                            .autocapitalization(.none)
-                            .keyboardType(.emailAddress)
+                            .foregroundColor(.white.opacity(0.75))
                     }
 
-                    // Password field
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Senha")
-                            .font(.subheadline)
-                            .foregroundColor(.white.opacity(0.9))
+                    // Login card
+                    VStack(spacing: 22) {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Email")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.secondary)
 
-                        SecureField("••••••••", text: $password)
-                            .textFieldStyle(CustomTextFieldStyle())
-                            .textContentType(.password)
-                    }
+                            HStack(spacing: 12) {
+                                Image(systemName: "envelope")
+                                    .foregroundColor(.secondary)
+                                    .frame(width: 20)
 
-                    // Forgot password button
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            showForgotPassword = true
-                        }) {
-                            Text("Esqueci minha senha")
-                                .font(.footnote)
-                                .foregroundColor(.white.opacity(0.9))
-                        }
-                    }
-
-                    // Sign in button
-                    Button(action: {
-                        Task {
-                            await authViewModel.signIn(email: email, password: password)
-                        }
-                    }) {
-                        if authViewModel.isLoading {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                .frame(maxWidth: .infinity)
-                        } else {
-                            Text("Entrar")
-                                .font(.headline)
-                                .foregroundColor(.blue)
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
-                    .frame(height: 50)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .disabled(authViewModel.isLoading || email.isEmpty || password.isEmpty)
-
-                    // Error message
-                    if let errorMessage = authViewModel.errorMessage {
-                        Text(errorMessage)
-                            .font(.footnote)
-                            .foregroundColor(.red)
+                                TextField("seu@email.com", text: $email)
+                                    .textContentType(.emailAddress)
+                                    .autocapitalization(.none)
+                                    .keyboardType(.emailAddress)
+                            }
                             .padding()
-                            .background(Color.white.opacity(0.9))
-                            .cornerRadius(8)
-                    }
-                }
-                .padding(.horizontal, 30)
-                .padding(.vertical, 40)
-                .background(Color.white.opacity(0.15))
-                .cornerRadius(20)
-                .padding(.horizontal, 20)
+                            .background(Theme.cardBackground)
+                            .cornerRadius(Theme.cornerSM)
+                        }
 
-                Spacer()
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Senha")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.secondary)
+
+                            HStack(spacing: 12) {
+                                Image(systemName: "lock")
+                                    .foregroundColor(.secondary)
+                                    .frame(width: 20)
+
+                                SecureField("••••••••", text: $password)
+                                    .textContentType(.password)
+                            }
+                            .padding()
+                            .background(Theme.cardBackground)
+                            .cornerRadius(Theme.cornerSM)
+                        }
+
+                        HStack {
+                            Spacer()
+                            Button(action: { showForgotPassword = true }) {
+                                Text("Esqueci minha senha")
+                                    .font(.footnote)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Theme.primary)
+                            }
+                        }
+
+                        Button(action: {
+                            Task { await authViewModel.signIn(email: email, password: password) }
+                        }) {
+                            Group {
+                                if authViewModel.isLoading {
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                } else {
+                                    Text("Entrar")
+                                        .font(.headline)
+                                }
+                            }
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 52)
+                            .background(
+                                (email.isEmpty || password.isEmpty) ?
+                                AnyShapeStyle(Theme.primary.opacity(0.4)) :
+                                AnyShapeStyle(Theme.primaryGradient)
+                            )
+                            .cornerRadius(Theme.cornerMD)
+                            .modifier(ElevatedShadow())
+                        }
+                        .disabled(authViewModel.isLoading || email.isEmpty || password.isEmpty)
+
+                        if let errorMessage = authViewModel.errorMessage {
+                            HStack(spacing: 8) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(Theme.danger)
+                                Text(errorMessage)
+                                    .font(.footnote)
+                                    .foregroundColor(Theme.danger)
+                            }
+                            .padding(12)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Theme.danger.opacity(0.08))
+                            .cornerRadius(Theme.cornerSM)
+                        }
+                    }
+                    .padding(24)
+                    .background(Color(UIColor.systemBackground))
+                    .cornerRadius(Theme.cornerXL)
+                    .modifier(ElevatedShadow())
+                    .padding(.horizontal, 20)
+                    .opacity(formOpacity)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.5).delay(0.2)) {
+                            formOpacity = 1
+                        }
+                    }
+
+                    Spacer().frame(height: 40)
+                }
             }
-            .padding(.top, 60)
         }
         .sheet(isPresented: $showForgotPassword) {
             ForgotPasswordView(isPresented: $showForgotPassword)
                 .environmentObject(authViewModel)
         }
-    }
-}
-
-// MARK: - Custom Text Field Style
-
-struct CustomTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .padding()
-            .background(Color.white)
-            .cornerRadius(8)
     }
 }
 
@@ -151,26 +184,39 @@ struct ForgotPasswordView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(UIColor.systemGroupedBackground)
-                    .ignoresSafeArea()
+                Theme.screenBackground.ignoresSafeArea()
 
-                VStack(spacing: 20) {
+                VStack(spacing: 24) {
+                    Image(systemName: "key.fill")
+                        .font(.system(size: 44))
+                        .foregroundStyle(Theme.primaryGradient)
+                        .padding(.top, 20)
+
                     Text("Digite seu email para receber instruções de recuperação de senha")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .padding(.horizontal)
 
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text("Email")
                             .font(.subheadline)
+                            .fontWeight(.medium)
                             .foregroundColor(.secondary)
 
-                        TextField("seu@email.com", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .textContentType(.emailAddress)
-                            .autocapitalization(.none)
-                            .keyboardType(.emailAddress)
+                        HStack(spacing: 12) {
+                            Image(systemName: "envelope")
+                                .foregroundColor(.secondary)
+                                .frame(width: 20)
+
+                            TextField("seu@email.com", text: $email)
+                                .textContentType(.emailAddress)
+                                .autocapitalization(.none)
+                                .keyboardType(.emailAddress)
+                        }
+                        .padding()
+                        .background(Theme.cardBackground)
+                        .cornerRadius(Theme.cornerSM)
                     }
                     .padding(.horizontal)
 
@@ -180,47 +226,41 @@ struct ForgotPasswordView: View {
                             showSuccess = true
                         }
                     }) {
-                        if authViewModel.isLoading {
-                            ProgressView()
-                                .frame(maxWidth: .infinity)
-                        } else {
-                            Text("Enviar")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
+                        Group {
+                            if authViewModel.isLoading {
+                                ProgressView()
+                            } else {
+                                Text("Enviar")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                            }
                         }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(email.isEmpty ? Color.gray.opacity(0.3) : Theme.primary)
+                        .cornerRadius(Theme.cornerMD)
                     }
-                    .frame(height: 50)
-                    .background(email.isEmpty ? Color.gray : Color.blue)
-                    .cornerRadius(10)
                     .padding(.horizontal)
                     .disabled(authViewModel.isLoading || email.isEmpty)
 
                     Spacer()
                 }
-                .padding(.top, 20)
             }
             .navigationTitle("Recuperar Senha")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Fechar") {
-                        isPresented = false
-                    }
+                    Button("Fechar") { isPresented = false }
                 }
             }
             .alert("Email Enviado", isPresented: $showSuccess) {
-                Button("OK") {
-                    isPresented = false
-                }
+                Button("OK") { isPresented = false }
             } message: {
                 Text("Verifique sua caixa de entrada para recuperar sua senha.")
             }
         }
     }
 }
-
-// MARK: - Preview
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,10 +1,3 @@
-//
-//  MessageDetailView.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import SwiftUI
 
 struct MessageDetailView: View {
@@ -18,109 +11,116 @@ struct MessageDetailView: View {
     let message: Message
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                // Banner image (if exists)
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 0) {
+                // Banner image
                 if let imageUrl = message.content.imageUrl,
                    let url = URL(string: imageUrl) {
                     AsyncImage(url: url, transaction: Transaction(animation: .easeInOut)) { phase in
                         switch phase {
                         case .empty:
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(UIColor.secondarySystemBackground))
-                                .frame(height: 200)
+                            Rectangle()
+                                .fill(Theme.cardBackground)
+                                .frame(height: 220)
                                 .overlay(ProgressView())
                         case .success(let image):
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(height: 200)
+                                .frame(height: 220)
                                 .clipped()
                                 .transition(.opacity)
                         case .failure:
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(UIColor.secondarySystemBackground))
-                                .frame(height: 200)
+                            Rectangle()
+                                .fill(Theme.cardBackground)
+                                .frame(height: 220)
                                 .overlay(
                                     Image(systemName: "photo")
-                                        .font(.largeTitle)
+                                        .font(.system(size: 36, weight: .light))
                                         .foregroundStyle(.secondary)
                                 )
                         @unknown default:
                             EmptyView()
                         }
                     }
-                    .cornerRadius(12)
-                    .shadow(radius: 5)
                 }
 
-                // Title
-                Text(message.content.title)
-                    .font(.title)
-                    .fontWeight(.bold)
-
-                // Metadata
-                HStack {
-                    Label(
-                        message.type == .campaign ? "Campanha" : "Mensagem",
-                        systemImage: message.type == .campaign ? "megaphone" : "message"
+                VStack(alignment: .leading, spacing: 20) {
+                    // Type badge
+                    HStack(spacing: 6) {
+                        Image(systemName: message.type == .campaign ? "megaphone.fill" : "message.fill")
+                            .font(.system(size: 11, weight: .semibold))
+                        Text(message.type == .campaign ? "CAMPANHA" : "MENSAGEM")
+                            .font(.system(size: 11, weight: .bold))
+                            .kerning(0.5)
+                    }
+                    .foregroundColor(message.type == .campaign ? Theme.campaignOrange : Theme.primary)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(
+                        (message.type == .campaign ? Theme.campaignOrange : Theme.primary).opacity(0.1)
                     )
-                    .font(.caption)
+                    .cornerRadius(6)
+
+                    Text(message.content.title)
+                        .font(.system(size: 26, weight: .bold))
+                        .foregroundColor(.primary)
+
+                    HStack(spacing: 6) {
+                        Image(systemName: "clock")
+                            .font(.system(size: 12))
+                        Text(message.createdAt.formatted(date: .abbreviated, time: .shortened))
+                            .font(.subheadline)
+                    }
                     .foregroundColor(.secondary)
 
-                    Spacer()
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.12))
+                        .frame(height: 1)
 
-                    Label(
-                        message.createdAt.formatted(date: .abbreviated, time: .shortened),
-                        systemImage: "clock"
-                    )
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                }
+                    // Body
+                    Text(message.content.body)
+                        .font(.body)
+                        .lineSpacing(4)
+                        .foregroundColor(.primary)
+                        .fixedSize(horizontal: false, vertical: true)
 
-                Divider()
+                    // Action buttons
+                    if let buttons = message.content.buttons, !buttons.isEmpty {
+                        VStack(alignment: .leading, spacing: 14) {
+                            Text("Ações")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundColor(.secondary)
+                                .textCase(.uppercase)
 
-                // Body
-                Text(message.content.body)
-                    .font(.body)
-                    .foregroundColor(.primary)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                // Action buttons
-                if let buttons = message.content.buttons, !buttons.isEmpty {
-                    VStack(spacing: 12) {
-                        Text("Ações")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                        ForEach(buttons) { button in
-                            ActionButtonView(button: button) {
-                                handleAction(button.action)
+                            ForEach(buttons) { button in
+                                ActionButtonView(button: button) {
+                                    handleAction(button.action)
+                                }
                             }
                         }
+                        .padding(.top, 4)
                     }
-                    .padding(.top, 8)
                 }
+                .padding(20)
 
                 Spacer(minLength: 50)
             }
-            .padding()
         }
+        .background(Color(UIColor.systemBackground))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    Task {
-                        await viewModel.toggleStar(message)
-                    }
+                    Task { await viewModel.toggleStar(message) }
                 }) {
                     Image(systemName: message.starred ? "star.fill" : "star")
-                        .foregroundColor(message.starred ? .yellow : .gray)
+                        .foregroundColor(message.starred ? .orange : .gray)
+                        .font(.system(size: 16, weight: .medium))
                 }
             }
         }
         .task {
-            // Mark as read when view appears
             await viewModel.markAsRead(message)
         }
         .overlay(
@@ -129,7 +129,9 @@ struct MessageDetailView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ShowToast"))) { notification in
             if let message = notification.userInfo?["message"] as? String {
                 toastMessage = message
-                showToast = true
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                    showToast = true
+                }
             }
         }
     }
@@ -147,25 +149,26 @@ struct ActionButtonView: View {
 
     var body: some View {
         Button(action: action) {
-            HStack {
+            HStack(spacing: 12) {
+                Image(systemName: iconForAction(button.action))
+                    .font(.system(size: 16, weight: .semibold))
+                    .frame(width: 20)
+
                 Text(button.label)
-                    .font(.headline)
-                    .foregroundColor(.white)
+                    .font(.system(size: 15, weight: .semibold))
 
                 Spacer()
 
-                Image(systemName: iconForAction(button.action))
-                    .foregroundColor(.white)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(.white.opacity(0.7))
             }
-            .padding()
-            .background(
-                LinearGradient(
-                    gradient: Gradient(colors: gradientForAction(button.action)),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                )
-            )
-            .cornerRadius(12)
+            .foregroundColor(.white)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 15)
+            .background(gradientForAction(button.action))
+            .cornerRadius(Theme.cornerMD)
+            .modifier(CardShadow())
         }
     }
 
@@ -180,19 +183,17 @@ struct ActionButtonView: View {
         return "hand.tap.fill"
     }
 
-    private func gradientForAction(_ action: String) -> [Color] {
+    private func gradientForAction(_ action: String) -> LinearGradient {
         if action.hasPrefix("deeplink://") {
-            return [Color.blue, Color.purple]
+            return Theme.primaryGradient
         } else if action.hasPrefix("copy:") {
-            return [Color.green, Color.teal]
+            return LinearGradient(colors: [Theme.success, Theme.accent], startPoint: .leading, endPoint: .trailing)
         } else if action.hasPrefix("http") {
-            return [Color.orange, Color.red]
+            return Theme.campaignGradient
         }
-        return [Color.gray, Color.gray]
+        return LinearGradient(colors: [.gray, .gray.opacity(0.7)], startPoint: .leading, endPoint: .trailing)
     }
 }
-
-// MARK: - Preview
 
 struct MessageDetailView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,10 +1,3 @@
-//
-//  NotificationService.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import Foundation
 import UserNotifications
 import SwiftUI
@@ -73,7 +66,6 @@ class NotificationService: NSObject, ObservableObject {
             )
             self.shouldShowInAppNotification = true
 
-            // Auto-dismiss after 4 seconds
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 self.dismissInAppNotification()
             }
@@ -81,7 +73,7 @@ class NotificationService: NSObject, ObservableObject {
     }
 
     func dismissInAppNotification() {
-        withAnimation {
+        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
             shouldShowInAppNotification = false
             currentInAppNotification = nil
         }
@@ -121,19 +113,25 @@ struct InAppNotificationView: View {
     let onDismiss: () -> Void
 
     var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "bell.fill")
-                .font(.title2)
-                .foregroundColor(.white)
+        HStack(spacing: 14) {
+            ZStack {
+                Circle()
+                    .fill(Color.white.opacity(0.2))
+                    .frame(width: 40, height: 40)
 
-            VStack(alignment: .leading, spacing: 4) {
+                Image(systemName: "bell.fill")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+
+            VStack(alignment: .leading, spacing: 3) {
                 Text(notification.title)
-                    .font(.headline)
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.white)
 
                 Text(notification.body)
                     .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.9))
+                    .foregroundColor(.white.opacity(0.85))
                     .lineLimit(2)
             }
 
@@ -141,21 +139,18 @@ struct InAppNotificationView: View {
 
             Button(action: onDismiss) {
                 Image(systemName: "xmark")
-                    .font(.caption)
-                    .foregroundColor(.white.opacity(0.7))
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(.white.opacity(0.6))
+                    .frame(width: 28, height: 28)
+                    .background(Color.white.opacity(0.15))
+                    .clipShape(Circle())
             }
         }
-        .padding()
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [Color.blue, Color.purple]),
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-        )
-        .cornerRadius(12)
-        .shadow(radius: 10)
-        .padding(.horizontal)
+        .padding(16)
+        .background(Theme.primaryGradient)
+        .cornerRadius(Theme.cornerMD)
+        .modifier(ElevatedShadow())
+        .padding(.horizontal, 16)
         .onTapGesture {
             onTap()
         }

@@ -1,10 +1,3 @@
-//
-//  NotificationsView.swift
-//  WTCChatApp
-//
-//  Created by WTC Challenge
-//
-
 import SwiftUI
 
 struct NotificationsView: View {
@@ -15,41 +8,42 @@ struct NotificationsView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Theme.screenBackground.ignoresSafeArea()
+
                 if viewModel.isLoading && viewModel.notifications.isEmpty {
                     ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .scaleEffect(1.1)
                 } else if viewModel.notifications.isEmpty {
                     EmptyStateView(
                         icon: "bell.slash",
-                        message: "Nenhuma notificação"
+                        message: "Nenhuma notificação",
+                        subtitle: "Você será notificado sobre novas mensagens"
                     )
                 } else {
-                    List {
-                        ForEach(viewModel.notifications) { notification in
-                            NotificationRowView(notification: notification)
-                                .onTapGesture {
-                                    Task {
-                                        await viewModel.markAsRead(notification)
-
-                                        // Navigate to message if available
-                                        if let messageId = notification.messageId {
-                                            // TODO: Navigate to message detail
-                                            print("Navigate to message: \(messageId)")
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
+                            ForEach(viewModel.notifications) { notification in
+                                NotificationRowView(notification: notification)
+                                    .onTapGesture {
+                                        Task {
+                                            await viewModel.markAsRead(notification)
+                                            if let messageId = notification.messageId {
+                                                print("Navigate to message: \(messageId)")
+                                            }
                                         }
                                     }
-                                }
-                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                    Button(role: .destructive) {
-                                        viewModel.deleteNotification(notification)
-                                    } label: {
-                                        Label("Deletar", systemImage: "trash")
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        Button(role: .destructive) {
+                                            viewModel.deleteNotification(notification)
+                                        } label: {
+                                            Label("Deletar", systemImage: "trash")
+                                        }
                                     }
-                                }
-                                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                                .listRowSeparator(.hidden)
+                            }
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
                     }
-                    .listStyle(.plain)
                     .refreshable {
                         if let userId = authViewModel.currentProfile?.id {
                             await viewModel.refreshNotifications(userId: userId)
@@ -61,21 +55,25 @@ struct NotificationsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Fechar") {
-                        dismiss()
+                    Button(action: { dismiss() }) {
+                        Text("Fechar").fontWeight(.medium)
                     }
                 }
 
                 ToolbarItem(placement: .navigationBarLeading) {
                     if viewModel.unreadCount > 0 {
-                        Button("Marcar todas como lidas") {
+                        Button {
                             Task {
                                 if let userId = authViewModel.currentProfile?.id {
                                     await viewModel.markAllAsRead(userId: userId)
                                 }
                             }
+                        } label: {
+                            Text("Marcar todas")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(Theme.primary)
                         }
-                        .font(.caption)
                     }
                 }
             }
@@ -86,9 +84,7 @@ struct NotificationsView: View {
             }
         }
         .onDisappear {
-            Task {
-                await viewModel.cleanup()
-            }
+            Task { await viewModel.cleanup() }
         }
     }
 }
@@ -99,22 +95,25 @@ struct NotificationRowView: View {
     let notification: AppNotification
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            // Icon
+        HStack(alignment: .top, spacing: 14) {
             ZStack {
                 Circle()
-                    .fill(notification.read ? Color.gray.opacity(0.3) : Color.blue.opacity(0.2))
-                    .frame(width: 40, height: 40)
+                    .fill(
+                        notification.read
+                            ? Color.gray.opacity(0.1)
+                            : Theme.primary.opacity(0.12)
+                    )
+                    .frame(width: Theme.avatarSM, height: Theme.avatarSM)
 
                 Image(systemName: iconForType(notification.type))
-                    .font(.body)
-                    .foregroundColor(notification.read ? .gray : .blue)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(notification.read ? .gray : Theme.primary)
             }
 
-            VStack(alignment: .leading, spacing: 4) {
-                HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack(alignment: .top) {
                     Text(notification.title)
-                        .font(.headline)
+                        .font(.system(size: 15, weight: notification.read ? .medium : .semibold))
                         .foregroundColor(.primary)
                         .lineLimit(1)
 
@@ -122,7 +121,7 @@ struct NotificationRowView: View {
 
                     if !notification.read {
                         Circle()
-                            .fill(Color.blue)
+                            .fill(Theme.accent)
                             .frame(width: 8, height: 8)
                     }
                 }
@@ -133,30 +132,31 @@ struct NotificationRowView: View {
                     .lineLimit(2)
 
                 Text(notification.createdAt.timeAgo())
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.secondary.opacity(0.7))
+                    .padding(.top, 1)
             }
         }
-        .padding()
-        .background(notification.read ? Color.clear : Color.blue.opacity(0.05))
-        .cornerRadius(12)
+        .padding(14)
+        .background(
+            notification.read
+                ? Color(UIColor.systemBackground)
+                : Theme.primary.opacity(0.03)
+        )
+        .cornerRadius(Theme.cornerMD)
+        .modifier(CardShadow())
     }
 
     private func iconForType(_ type: String) -> String {
         switch type {
-        case "message":
-            return "message.fill"
-        case "campaign":
-            return "megaphone.fill"
-        case "system":
-            return "info.circle.fill"
-        default:
-            return "bell.fill"
+        case "message": return "message.fill"
+        case "campaign": return "megaphone.fill"
+        case "system": return "info.circle.fill"
+        default: return "bell.fill"
         }
     }
 }
-
-// MARK: - Preview
 
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
