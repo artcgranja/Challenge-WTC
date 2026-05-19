@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct MessageDetailView: View {
     @EnvironmentObject var viewModel: MessagesViewModel
@@ -24,13 +23,35 @@ struct MessageDetailView: View {
                 // Banner image (if exists)
                 if let imageUrl = message.content.imageUrl,
                    let url = URL(string: imageUrl) {
-                    KFImage(url)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .clipped()
-                        .cornerRadius(12)
-                        .shadow(radius: 5)
+                    AsyncImage(url: url, transaction: Transaction(animation: .easeInOut)) { phase in
+                        switch phase {
+                        case .empty:
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color(UIColor.secondarySystemBackground))
+                                .frame(height: 200)
+                                .overlay(ProgressView())
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 200)
+                                .clipped()
+                                .transition(.opacity)
+                        case .failure:
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color(UIColor.secondarySystemBackground))
+                                .frame(height: 200)
+                                .overlay(
+                                    Image(systemName: "photo")
+                                        .font(.largeTitle)
+                                        .foregroundStyle(.secondary)
+                                )
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    .cornerRadius(12)
+                    .shadow(radius: 5)
                 }
 
                 // Title
