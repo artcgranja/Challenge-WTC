@@ -1,0 +1,71 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "731bf80f5a0d1ba84a12bb38a735b07cfc90166a0992b29a310151a28c739679"
+    }
+  ],
+  "containerPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/WTCChatApp.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "hostTargetedPlatform" : null,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator26.5",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Products",
+      "derivedDataPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build",
+      "indexDataStoreFolderPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/arthurgranja/github/Challenge-WTC/.claude/worktrees/modest-meitner-1cb371/build/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone18,3",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "26.5",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone18,3",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "ONLY_ACTIVE_ARCH" : "YES",
+          "TARGET_DEVICE_IDENTIFIER" : "1F640EAD-2561-445E-8A95-B3FDDDACBDF2",
+          "TARGET_DEVICE_MODEL" : "iPhone18,3",
+          "TARGET_DEVICE_OS_VERSION" : "26.5",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

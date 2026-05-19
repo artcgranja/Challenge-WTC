@@ -3,6 +3,7 @@ import SwiftUI
 struct OperatorMessagesView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var campaignViewModel: CampaignViewModel
+    @EnvironmentObject var crmViewModel: CRMViewModel
     @State private var showComposeSheet = false
     @State private var selectedMessage: Message?
 
@@ -81,6 +82,7 @@ struct OperatorMessagesView: View {
         .sheet(isPresented: $showComposeSheet) {
             ComposeMessageSheet()
                 .environmentObject(campaignViewModel)
+                .environmentObject(crmViewModel)
         }
         .task {
             await campaignViewModel.fetchSentMessages()

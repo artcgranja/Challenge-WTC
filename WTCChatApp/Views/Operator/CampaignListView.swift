@@ -30,6 +30,7 @@ struct CampaignListView: View {
                                 ForEach(campaignViewModel.filteredCampaigns) { campaign in
                                     CampaignCardView(
                                         campaign: campaign,
+                                        segmentName: campaignViewModel.segmentName(for: campaign.segmentId),
                                         onSend: { sendConfirmationCampaign = campaign },
                                         onEdit: { editingCampaign = campaign }
                                     )
@@ -86,6 +87,7 @@ struct CampaignListView: View {
             Text("Enviar a campanha \"\(sendConfirmationCampaign?.name ?? "")\" agora?")
         }
         .task {
+            await campaignViewModel.fetchSegments()
             await campaignViewModel.fetchCampaigns()
         }
     }
@@ -112,6 +114,7 @@ struct CampaignListView: View {
 
 struct CampaignCardView: View {
     let campaign: Campaign
+    var segmentName: String = "-"
     var onSend: () -> Void
     var onEdit: () -> Void
 
@@ -131,7 +134,7 @@ struct CampaignCardView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.primary)
 
-                    Text("Segmento: \(campaign.segmentId ?? "-")")
+                    Text("Segmento: \(segmentName)")
                         .font(.system(size: 13))
                         .foregroundColor(.secondary)
                 }

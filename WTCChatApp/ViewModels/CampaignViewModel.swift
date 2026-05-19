@@ -24,6 +24,11 @@ class CampaignViewModel: ObservableObject {
     private let apiService = APIService.shared
     private var cancellables = Set<AnyCancellable>()
 
+    func segmentName(for id: String?) -> String {
+        guard let id = id else { return "-" }
+        return segments.first(where: { $0.id == id })?.name ?? id
+    }
+
     init() {
         setupCampaignFilter()
         setupMessageFilter()

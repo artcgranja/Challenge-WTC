@@ -65,6 +65,7 @@ struct CustomerDetailView: View {
         .sheet(isPresented: $showComposeSheet) {
             ComposeMessageSheet(preselectedRecipientId: customer.userId, preselectedRecipientName: customer.displayName)
                 .environmentObject(campaignViewModel)
+                .environmentObject(crmViewModel)
         }
         .alert("Adicionar Nota", isPresented: $showNoteAlert) {
             TextField("Escreva sua nota...", text: $noteText)

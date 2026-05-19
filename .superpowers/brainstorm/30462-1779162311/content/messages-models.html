@@ -1,0 +1,214 @@
+<h2>Messages Tab (Operator Send History) + Data Models</h2>
+<p class="subtitle">Operator's sent messages view and the complete data model architecture</p>
+
+<div class="split">
+  <!-- Messages Tab -->
+  <div class="mockup">
+    <div class="mockup-header">Messages Tab — Operator's Sent Messages</div>
+    <div class="mockup-body" style="background: #F2F2F7; padding: 0; border-radius: 12px; overflow: hidden;">
+      <!-- Status bar -->
+      <div style="background: linear-gradient(135deg, #4A54D9 0%, #7379F2 100%); padding: 12px 16px 8px; color: white; font-size: 11px; display: flex; justify-content: space-between;">
+        <span>9:41</span>
+        <span>●●●●○ 🔋</span>
+      </div>
+
+      <div style="padding: 16px; min-height: 360px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <div style="font-size: 28px; font-weight: 700; color: #0F172A;">Mensagens</div>
+            <div style="font-size: 13px; color: #64748B;">Histórico de envios</div>
+          </div>
+          <div style="background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 10px 16px; border-radius: 14px; font-size: 14px; font-weight: 600;">+ Nova</div>
+        </div>
+
+        <!-- Search -->
+        <div style="background: white; border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+          <span style="color: #94A3B8;">🔍</span>
+          <span style="color: #94A3B8; font-size: 14px;">Buscar mensagens...</span>
+        </div>
+
+        <!-- Filter chips -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+          <span style="background: linear-gradient(135deg, #4A54D9, #7379F2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;">Todas</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0;">Chat</span>
+          <span style="background: white; color: #64748B; padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #E2E8F0;">Campanhas</span>
+        </div>
+
+        <!-- Sent message row 1 -->
+        <div style="background: white; border-radius: 14px; padding: 14px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="display: flex; align-items: start; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 20px; background: rgba(74,84,217,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="font-size: 18px; color: #4A54D9;">💬</span>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">Oferta exclusiva</span>
+                <span style="font-size: 11px; color: #94A3B8;">Há 2h</span>
+              </div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Aproveite nossa promoção especial para clientes...</div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
+                <span style="background: rgba(6,182,160,0.1); color: #06B6A0; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 500;">CHAT</span>
+                <span style="font-size: 11px; color: #94A3B8;">→ João Pereira</span>
+                <span style="margin-left: auto;">
+                  <span style="font-size: 11px; color: #059669;">✓ Lida</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sent message row 2 -->
+        <div style="background: white; border-radius: 14px; padding: 14px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="display: flex; align-items: start; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 20px; background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(249,115,22,0.15)); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="font-size: 18px; color: #F59E0B;">📢</span>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">Novidades do mês</span>
+                <span style="font-size: 11px; color: #94A3B8;">Há 1d</span>
+              </div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Confira as novidades que preparamos para você...</div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
+                <span style="background: rgba(245,158,11,0.1); color: #D97706; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 500;">CAMPANHA</span>
+                <span style="font-size: 11px; color: #94A3B8;">→ Segmento: ativo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sent message row 3 -->
+        <div style="background: white; border-radius: 14px; padding: 14px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <div style="display: flex; align-items: start; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 20px; background: rgba(74,84,217,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="font-size: 18px; color: #4A54D9;">💬</span>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; font-size: 15px; color: #0F172A;">Bem-vindo ao programa</span>
+                <span style="font-size: 11px; color: #94A3B8;">Há 3d</span>
+              </div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Olá Pedro, seja bem-vindo ao nosso programa...</div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-top: 6px;">
+                <span style="background: rgba(6,182,160,0.1); color: #06B6A0; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 500;">CHAT</span>
+                <span style="font-size: 11px; color: #94A3B8;">→ Pedro Costa</span>
+                <span style="margin-left: auto;">
+                  <span style="font-size: 11px; color: #94A3B8;">○ Não lida</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar -->
+      <div style="background: white; border-top: 1px solid #E2E8F0; padding: 8px 0 24px; display: flex; justify-content: space-around;">
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👥</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">CRM</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">📢</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Campanhas</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">✉️</div>
+          <div style="font-size: 10px; font-weight: 600; color: #4A54D9; margin-top: 2px;">Mensagens</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 22px;">👤</div>
+          <div style="font-size: 10px; color: #94A3B8; margin-top: 2px;">Perfil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Models -->
+  <div class="mockup">
+    <div class="mockup-header">New Data Models + APIService Extensions</div>
+    <div class="mockup-body" style="background: #1E1E2E; padding: 16px; border-radius: 12px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; line-height: 1.6; color: #CDD6F4; overflow-x: auto;">
+
+<pre style="margin: 0; white-space: pre-wrap;"><span style="color: #89B4FA;">// Customer.swift</span>
+<span style="color: #CBA6F7;">struct</span> <span style="color: #F9E2AF;">Customer</span>: Codable, Identifiable {
+    <span style="color: #CBA6F7;">let</span> id: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> userId: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> tags: [<span style="color: #F9E2AF;">String</span>]
+    <span style="color: #CBA6F7;">var</span> score: <span style="color: #F9E2AF;">Int</span>
+    <span style="color: #CBA6F7;">var</span> status: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> notes: [<span style="color: #F9E2AF;">CustomerNote</span>]?
+    <span style="color: #CBA6F7;">var</span> segmentIds: [<span style="color: #F9E2AF;">String</span>]?
+    <span style="color: #CBA6F7;">var</span> fullName: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> email: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> phone: <span style="color: #F9E2AF;">String</span>?
+}
+
+<span style="color: #CBA6F7;">struct</span> <span style="color: #F9E2AF;">CustomerNote</span>: Codable, Identifiable {
+    <span style="color: #CBA6F7;">var</span> id: <span style="color: #F9E2AF;">String</span> { content + createdAt }
+    <span style="color: #CBA6F7;">let</span> content: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">let</span> createdBy: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">let</span> createdAt: <span style="color: #F9E2AF;">String</span>
+}
+
+<span style="color: #89B4FA;">// Campaign.swift</span>
+<span style="color: #CBA6F7;">struct</span> <span style="color: #F9E2AF;">Campaign</span>: Codable, Identifiable {
+    <span style="color: #CBA6F7;">let</span> id: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> name: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> segmentId: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> content: <span style="color: #F9E2AF;">MessageContent</span>
+    <span style="color: #CBA6F7;">var</span> deeplink: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> status: <span style="color: #F9E2AF;">String</span>  <span style="color: #6C7086;">// DRAFT | SENT</span>
+    <span style="color: #CBA6F7;">var</span> sentAt: <span style="color: #F9E2AF;">Date</span>?
+    <span style="color: #CBA6F7;">var</span> sentBy: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> messageCount: <span style="color: #F9E2AF;">Int</span>?
+    <span style="color: #CBA6F7;">var</span> createdAt: <span style="color: #F9E2AF;">Date</span>
+}
+
+<span style="color: #89B4FA;">// Segment.swift</span>
+<span style="color: #CBA6F7;">struct</span> <span style="color: #F9E2AF;">Segment</span>: Codable, Identifiable {
+    <span style="color: #CBA6F7;">let</span> id: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> name: <span style="color: #F9E2AF;">String</span>
+    <span style="color: #CBA6F7;">var</span> description: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> tags: [<span style="color: #F9E2AF;">String</span>]
+    <span style="color: #CBA6F7;">var</span> createdBy: <span style="color: #F9E2AF;">String</span>?
+    <span style="color: #CBA6F7;">var</span> createdAt: <span style="color: #F9E2AF;">Date</span>?
+}
+
+<span style="color: #89B4FA;">// Profile.swift (add role field)</span>
+<span style="color: #CBA6F7;">struct</span> <span style="color: #F9E2AF;">Profile</span>: ... {
+    ...
+    <span style="color: #CBA6F7;">var</span> role: <span style="color: #F9E2AF;">String</span>  <span style="color: #A6E3A1;">// ← NEW</span>
+}
+
+<span style="color: #89B4FA;">// APIService extensions (~8 methods)</span>
+func fetchCustomers() async throws -> [Customer]
+func fetchCustomer(id:) async throws -> Customer
+func fetchTimeline(customerId:) async throws -> [TimelineEntry]
+func addNote(customerId:, content:) async throws
+func sendMessage(body:) async throws -> Message
+func fetchCampaigns() async throws -> [Campaign]
+func createCampaign(body:) async throws -> Campaign
+func sendCampaign(id:) async throws -> Campaign
+func fetchSegments() async throws -> [Segment]</pre>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>Messages Tab Design Notes</h3>
+  <ul>
+    <li><strong>Purpose:</strong> Operator's sent message history — NOT an inbox. Shows messages sent by this operator (1:1 and campaign-generated)</li>
+    <li><strong>Each row shows:</strong> Type badge (CHAT teal / CAMPANHA amber), title, body preview, recipient (name or segment tag), read status, relative time</li>
+    <li><strong>"+ Nova" button:</strong> Opens ComposeMessageSheet (same sheet used from CRM customer detail)</li>
+    <li><strong>Filters:</strong> Todas, Chat, Campanhas — same chip pattern as everywhere else</li>
+    <li><strong>Read status:</strong> Green checkmark "Lida" vs gray circle "Não lida" — gives operator visibility into engagement</li>
+  </ul>
+  <h3>Model Design Notes</h3>
+  <ul>
+    <li><strong>Customer uses String IDs</strong> (not UUID) — backend uses UUID strings as MongoDB _id, matching existing pattern</li>
+    <li><strong>CustomerNote</strong> — lightweight struct, computed id from content+date since backend doesn't return a note ID</li>
+    <li><strong>Campaign reuses MessageContent</strong> — same struct already defined in Message.swift (title, body, imageUrl, buttons)</li>
+    <li><strong>Segment</strong> — simple model, used in pickers throughout compose/campaign sheets</li>
+    <li><strong>Profile gains role field</strong> — populated from AuthResponse.role during login, used by ContentView to branch TabView</li>
+    <li><strong>TimelineEntry</strong> — union type wrapping Message or CustomerNote for the customer detail timeline (sorted by date)</li>
+  </ul>
+</div>

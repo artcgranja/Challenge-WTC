@@ -209,6 +209,7 @@ struct OperatorTabView: View {
             OperatorMessagesView()
                 .environmentObject(authViewModel)
                 .environmentObject(campaignViewModel)
+                .environmentObject(crmViewModel)
                 .tabItem {
                     Label("Mensagens", systemImage: "message.fill")
                 }

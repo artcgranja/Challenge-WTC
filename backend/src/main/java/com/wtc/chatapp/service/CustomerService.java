@@ -34,20 +34,20 @@ public class CustomerService {
     private Map<String, Object> enrichCustomer(Customer customer) {
         Map<String, Object> enriched = new HashMap<>();
         enriched.put("id", customer.getId());
-        enriched.put("userId", customer.getUserId());
+        enriched.put("user_id", customer.getUserId());
         enriched.put("tags", customer.getTags());
         enriched.put("score", customer.getScore());
         enriched.put("status", customer.getStatus());
         enriched.put("notes", customer.getNotes());
-        enriched.put("segmentIds", customer.getSegmentIds());
-        enriched.put("createdAt", customer.getCreatedAt());
+        enriched.put("segment_ids", customer.getSegmentIds());
+        enriched.put("created_at", customer.getCreatedAt());
 
         if (customer.getUserId() != null) {
             userRepository.findById(customer.getUserId()).ifPresent(user -> {
-                enriched.put("fullName", user.getFullName());
+                enriched.put("full_name", user.getFullName());
                 enriched.put("email", user.getEmail());
                 enriched.put("phone", user.getPhone());
-                enriched.put("avatarUrl", user.getAvatarUrl());
+                enriched.put("avatar_url", user.getAvatarUrl());
             });
         }
         return enriched;
